@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Neural Continuity Labs</title>
-  <meta name="description" content="Neural Continuity Labs reconstructs the complete physical state of an industrial plant using AI: temperature, pressure and flow everywhere, not only where the sensors sit.">
-  <meta name="theme-color" content="#0a1120">
+  <meta name="description" content="Neural Continuity Labs. Physics and AI, applied to industry.">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a1120" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://neuralcontinuitylabs.com/">
   <link rel="alternate" hreflang="en" href="https://neuralcontinuitylabs.com/?lang=en">
@@ -15,7 +16,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Neural Continuity Labs">
   <meta property="og:title" content="Neural Continuity Labs">
-  <meta property="og:description" content="Physical observability for industrial plants: the full picture of temperature, pressure and flow, not only where the sensors sit.">
+  <meta property="og:description" content="Physics and AI, applied to industry.">
   <meta property="og:url" content="https://neuralcontinuitylabs.com/">
   <meta property="og:image" content="https://neuralcontinuitylabs.com/og.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -28,10 +29,7 @@
 
   <header class="top">
     <div class="wrap">
-      <a class="brand" href="./" aria-label="Neural Continuity Labs">
-        <span class="mark" aria-hidden="true">NCL</span>
-        <span class="brand-text">Neural Continuity Labs</span>
-      </a>
+      <a class="brand" href="./">NCL</a>
       <nav class="nav" aria-label="Site">
         <a href="#contact" data-i18n="nav.contact">Contact</a>
         <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:lang.label">
@@ -45,87 +43,16 @@
 
   <main id="main">
     <section class="hero">
-      <div class="hero-bg" aria-hidden="true">
-        <svg viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
-              <circle cx="1.4" cy="1.4" r="1.4" fill="#eaf0fb" fill-opacity="0.16"/>
-            </pattern>
-            <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-              <stop offset="0" stop-color="#2563eb" stop-opacity="0.55"/>
-              <stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
-            </radialGradient>
-            <radialGradient id="halo" cx="50%" cy="50%" r="50%">
-              <stop offset="0" stop-color="#3b82f6" stop-opacity="0.9"/>
-              <stop offset="0.35" stop-color="#3b82f6" stop-opacity="0.25"/>
-              <stop offset="1" stop-color="#3b82f6" stop-opacity="0"/>
-            </radialGradient>
-            <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#0a1120" stop-opacity="0"/>
-              <stop offset="1" stop-color="#0a1120" stop-opacity="1"/>
-            </linearGradient>
-          </defs>
-          <rect width="1200" height="640" fill="url(#dots)"/>
-          <ellipse cx="900" cy="300" rx="420" ry="260" fill="url(#glow)"/>
-          <g fill="none" stroke="#3b82f6" stroke-width="1.2" stroke-opacity="0.35">
-            <path d="M560 420 C 700 380, 760 260, 900 250 S 1120 300, 1240 220"/>
-            <path d="M520 480 C 680 440, 760 330, 900 320 S 1120 380, 1240 300"/>
-            <path d="M500 540 C 660 500, 760 400, 900 390 S 1120 460, 1240 380"/>
-          </g>
-          <g>
-            <circle cx="900" cy="250" r="26" fill="url(#halo)"/>
-            <circle cx="900" cy="250" r="3.5" fill="#eaf0fb"/>
-            <circle cx="690" cy="372" r="20" fill="url(#halo)"/>
-            <circle cx="690" cy="372" r="3" fill="#eaf0fb"/>
-            <circle cx="1080" cy="340" r="20" fill="url(#halo)"/>
-            <circle cx="1080" cy="340" r="3" fill="#eaf0fb"/>
-            <circle cx="820" cy="470" r="16" fill="url(#halo)"/>
-            <circle cx="820" cy="470" r="2.6" fill="#eaf0fb"/>
-          </g>
-          <rect y="440" width="1200" height="200" fill="url(#fade)"/>
-        </svg>
-      </div>
       <div class="wrap">
-        <p class="eyebrow">Physical Observability</p>
-        <h1 data-i18n="hero.title">See the whole plant, not just the sensors.</h1>
-        <p class="lead" data-i18n="hero.lead">Neural Continuity Labs reconstructs the complete physical state of an industrial plant using AI: the full picture of temperature, pressure and flow, everywhere, not only where the sensors sit.</p>
-        <a class="btn" href="#contact" data-i18n="hero.cta">Write to us</a>
-      </div>
-    </section>
-
-    <section class="what" aria-labelledby="what-title">
-      <div class="wrap">
-        <h2 id="what-title" data-i18n="what.title">What we do</h2>
-        <div class="grid">
-          <article class="card">
-            <h3 data-i18n="b1.title">Blind spots</h3>
-            <p data-i18n="b1.body">Plants run on sensors, but sensors never cover everything. They measure a few points, and faults happen in the gaps in between.</p>
-          </article>
-          <article class="card">
-            <h3 data-i18n="b2.title">Full-field reconstruction</h3>
-            <p data-i18n="b2.body">Using sensor values and every other source of information about the plant, our AI reconstructs the whole physical field.</p>
-          </article>
-          <article class="card">
-            <h3 data-i18n="b3.title">Confidence you can check</h3>
-            <p data-i18n="b3.body">Every reconstruction comes with a confidence map: the model tells you how much to trust each prediction, so engineers know exactly when to rely on it.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="vision">
-      <div class="wrap">
-        <p data-i18n="vision">We want to change the way physics is done: as neural computation. We start where it is needed most today: industrial plants.</p>
+        <h1>Neural Continuity Labs</h1>
+        <p class="tagline" data-i18n="hero.tagline">Physics and AI, applied to industry.</p>
       </div>
     </section>
 
     <section class="contact" id="contact" aria-labelledby="contact-title">
       <div class="wrap">
-        <div class="contact-intro">
-          <h2 id="contact-title" data-i18n="contact.title">Contact us</h2>
-          <p data-i18n="contact.lead">Whether you run an industrial plant or want to know more about the technology, write to us.</p>
-          <p class="small"><span data-i18n="contact.or">Or email</span> <a href="mailto:contact@neuralcontinuitylabs.com">contact@neuralcontinuitylabs.com</a></p>
-        </div>
+        <h2 id="contact-title" data-i18n="contact.title">Contact</h2>
+        <p class="contact-lead"><a href="mailto:contact@neuralcontinuitylabs.com">contact@neuralcontinuitylabs.com</a></p>
         <form id="contact-form" novalidate>
           <label>
             <span data-i18n="form.name">Name</span>
@@ -137,13 +64,15 @@
           </label>
           <label>
             <span data-i18n="form.message">Message</span>
-            <textarea name="message" rows="5" required></textarea>
+            <textarea name="message" rows="4" required></textarea>
           </label>
           <div class="honey" aria-hidden="true">
             <label>Leave this field empty <input name="_honey" type="text" tabindex="-1" autocomplete="off"></label>
           </div>
-          <p class="small"><span data-i18n="form.privacy">We use your details only to answer you.</span> <a href="legal.html#privacy" data-i18n="form.privacyLink">Privacy notice</a>.</p>
-          <button class="btn" type="submit" data-i18n="form.send">Send</button>
+          <div class="form-foot">
+            <button class="btn" type="submit" data-i18n="form.send">Send</button>
+            <p class="small"><span data-i18n="form.privacy">Your details are used only to reply to you.</span> <a href="legal.html#privacy" data-i18n="form.privacyLink">Privacy notice</a>.</p>
+          </div>
           <p class="status" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -155,7 +84,6 @@
       <span>© 2026 Neural Continuity Labs</span>
       <a href="legal.html" data-i18n="footer.legal">Legal notice</a>
       <a href="legal.html#privacy" data-i18n="footer.privacy">Privacy</a>
-      <a href="mailto:contact@neuralcontinuitylabs.com">contact@neuralcontinuitylabs.com</a>
     </div>
   </footer>
 </body>
