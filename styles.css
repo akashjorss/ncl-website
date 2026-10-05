@@ -1,0 +1,144 @@
+/* Neural Continuity Labs: one dark theme, tokens shared with the demo and the business card. */
+:root {
+  --bg: #0a1120;
+  --bg-2: #0f1a2e;
+  --line: #233351;
+  --ink: #eaf0fb;
+  --muted: #93a4c0;
+  --muted-2: #6f81a1;
+  --blue: #3b82f6;
+  --blue-deep: #2563eb;
+  --green: #34d399;
+  --red: #f87171;
+  --max: 1080px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --font: "Helvetica Neue", Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font); line-height: 1.55;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+a { color: inherit; }
+h1, h2, h3 { font-weight: 700; letter-spacing: -0.015em; line-height: 1.15; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+.small { font-size: 14px; color: var(--muted); }
+
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+
+.skip {
+  position: absolute; left: -999px; top: 12px; z-index: 100;
+  background: var(--blue-deep); color: #fff; padding: 8px 12px; border-radius: 8px; text-decoration: none;
+}
+.skip:focus { left: 12px; }
+
+/* ---- header ---- */
+.top {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(10, 17, 32, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 600; letter-spacing: 0.01em; }
+.mark {
+  display: grid; place-items: center; width: 36px; height: 36px; border-radius: 8px;
+  background: var(--blue-deep); color: #fff; font-weight: 800; font-size: 12.5px; letter-spacing: 0.04em;
+}
+.nav { display: flex; align-items: center; gap: 20px; }
+.nav > a { text-decoration: none; color: var(--muted); font-weight: 500; }
+.nav > a:hover { color: var(--ink); }
+.lang {
+  display: inline-flex; padding: 3px; gap: 2px;
+  border: 1px solid var(--line); border-radius: 999px; background: rgba(10, 18, 33, 0.7);
+}
+.lang button {
+  border: 0; background: transparent; color: var(--muted); font: inherit; font-size: 12.5px; font-weight: 700;
+  padding: 5px 10px; border-radius: 999px; cursor: pointer; letter-spacing: 0.05em;
+}
+.lang button:hover { color: var(--ink); }
+.lang button[aria-pressed="true"] { background: var(--blue-deep); color: #fff; }
+
+/* ---- hero ---- */
+.hero { position: relative; overflow: hidden; padding: clamp(80px, 13vw, 150px) 0 clamp(72px, 11vw, 130px); }
+.hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.hero-bg svg { width: 100%; height: 100%; display: block; }
+.hero .wrap { position: relative; z-index: 1; }
+.eyebrow {
+  margin: 0 0 20px; color: var(--blue); font-weight: 700; font-size: 13px;
+  letter-spacing: 0.16em; text-transform: uppercase;
+}
+h1 { margin: 0 0 22px; font-size: clamp(36px, 5.6vw, 64px); line-height: 1.04; letter-spacing: -0.025em; max-width: 15ch; }
+.lead { margin: 0 0 36px; font-size: clamp(17px, 2vw, 21px); color: var(--muted); max-width: 58ch; }
+.btn {
+  display: inline-block; border: 0; cursor: pointer; font: inherit; font-weight: 600;
+  background: var(--blue-deep); color: #fff; text-decoration: none;
+  padding: 13px 22px; border-radius: 10px; box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+  transition: background 0.15s, transform 0.15s;
+}
+.btn:hover { background: var(--blue); }
+.btn:active { transform: translateY(1px); }
+.btn[disabled] { opacity: 0.6; cursor: default; }
+
+/* ---- sections ---- */
+h2 { font-size: clamp(26px, 3.2vw, 34px); margin: 0 0 28px; }
+.what { padding: clamp(56px, 8vw, 96px) 0; border-top: 1px solid var(--line); }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card { padding: 26px 24px; border: 1px solid var(--line); border-radius: 14px; background: var(--bg-2); }
+.card h3 { margin: 0 0 10px; font-size: 18px; }
+.card p { margin: 0; color: var(--muted); }
+
+.vision { padding: 0 0 clamp(56px, 8vw, 96px); }
+.vision p {
+  margin: 0; max-width: 34ch; font-size: clamp(21px, 2.7vw, 30px); line-height: 1.3; font-weight: 500;
+  border-left: 3px solid var(--blue-deep); padding-left: 22px;
+}
+
+/* ---- contact ---- */
+.contact { padding: clamp(56px, 8vw, 96px) 0; border-top: 1px solid var(--line); }
+.contact .wrap { display: grid; grid-template-columns: 1fr 1.25fr; gap: 56px; align-items: start; }
+.contact-intro p { color: var(--muted); margin: 0 0 14px; max-width: 40ch; }
+form { display: grid; gap: 14px; }
+label { display: grid; gap: 6px; font-size: 14px; font-weight: 500; color: var(--muted); }
+input, textarea {
+  width: 100%; font: inherit; color: var(--ink);
+  background: rgba(15, 26, 48, 0.8); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px;
+}
+textarea { resize: vertical; min-height: 130px; }
+input:focus, textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25); }
+form .btn { justify-self: start; }
+form .small { margin: 0; }
+.honey { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.status { min-height: 1.5em; margin: 0; font-size: 14px; }
+.status.ok { color: var(--green); }
+.status.err { color: var(--red); }
+
+/* ---- legal page ---- */
+.prose { padding: clamp(48px, 7vw, 80px) 0; }
+.prose .wrap { max-width: 760px; }
+.prose h1 { font-size: clamp(30px, 4vw, 40px); margin-bottom: 20px; }
+.prose h2 { margin-top: 48px; }
+.prose p { color: var(--muted); max-width: 70ch; }
+
+/* ---- footer ---- */
+footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted-2); font-size: 14px; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; }
+footer a { color: var(--muted); text-decoration: none; }
+footer a:hover { color: var(--ink); }
+
+/* ---- responsive ---- */
+@media (max-width: 880px) {
+  .grid { grid-template-columns: 1fr; }
+  .contact .wrap { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 520px) {
+  .brand-text { display: none; }
+  .nav { gap: 12px; }
+  h1 { max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}
