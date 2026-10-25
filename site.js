@@ -117,7 +117,9 @@
         })
       })
         .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status)); })
-        .then(function () {
+        .then(function (data) {
+          // FormSubmit answers 200 with success:"false" when the address is not yet activated
+          if (String(data && data.success) !== "true") throw new Error(data && data.message);
           form.reset();
           show("ok", "form.success");
         })
