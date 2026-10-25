@@ -164,3 +164,8 @@ footer .wrap, .footer-links, .footer-brand { display: flex; justify-content: spa
   .reveal { transition: none; }
   .pending { opacity: 1; transform: none; }
 }
+
+/* long words in the large serif statements (superintelligence, Superintelligenz) on narrow screens */
+@media (max-width: 480px) {
+  .ambition .section-lead { font-size: clamp(28px, 9vw, 40px); hyphens: manual; overflow-wrap: normal; }
+}
