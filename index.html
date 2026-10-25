@@ -4,9 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Neural Continuity Labs</title>
-  <meta name="description" content="Neural Continuity Labs. Physics and AI, applied to industry.">
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0a1120" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Neural Continuity Labs builds AI that understands the physics of industrial systems. Physics and AI, applied to industry.">
+  <meta name="theme-color" content="#0a1120">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://neuralcontinuitylabs.com/">
   <link rel="alternate" hreflang="en" href="https://neuralcontinuitylabs.com/?lang=en">
@@ -23,14 +22,21 @@
   <link rel="stylesheet" href="styles.css">
   <script src="i18n.js" defer></script>
   <script src="site.js" defer></script>
+  <script src="field.js" defer></script>
 </head>
 <body data-page="index">
   <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
   <header class="top">
     <div class="wrap">
-      <a class="brand" href="./">NCL</a>
+      <a class="brand" href="./" aria-label="Neural Continuity Labs">
+        <span class="mark" aria-hidden="true">NCL</span>
+        <span class="brand-text">Neural Continuity Labs</span>
+      </a>
       <nav class="nav" aria-label="Site">
+        <a href="#approach" data-i18n="nav.approach">Approach</a>
+        <a href="#industries" data-i18n="nav.industries">Industries</a>
+        <a href="#about" data-i18n="nav.about">About</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
         <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:lang.label">
           <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
@@ -43,16 +49,73 @@
 
   <main id="main">
     <section class="hero">
+      <canvas id="field" aria-hidden="true"></canvas>
+      <div class="wrap hero-inner">
+        <h1 data-i18n="hero.title">Physics and AI, applied to industry.</h1>
+        <p class="lead" data-i18n="hero.lead">Neural Continuity Labs builds AI that understands the physics of industrial systems: models that see what happens inside a plant and anticipate what comes next.</p>
+        <a class="btn" href="#contact" data-i18n="hero.cta">Get in touch</a>
+      </div>
+    </section>
+
+    <section class="statement">
       <div class="wrap">
-        <h1>Neural Continuity Labs</h1>
-        <p class="tagline" data-i18n="hero.tagline">Physics and AI, applied to industry.</p>
+        <p data-i18n="statement">Industrial systems are measured at a few points. What happens in between is left to experience. We build models that combine the physics of a system with the data it produces, to give engineers a complete and trustworthy picture.</p>
+      </div>
+    </section>
+
+    <section class="approach" id="approach" aria-labelledby="approach-title">
+      <div class="wrap">
+        <h2 id="approach-title" data-i18n="approach.title">Approach</h2>
+        <div class="cols">
+          <article>
+            <span class="num">01</span>
+            <h3 data-i18n="a1.title">Grounded in physics</h3>
+            <p data-i18n="a1.body">Our models start from the laws that govern a system, rather than from data alone. This keeps them reliable where data is scarce.</p>
+          </article>
+          <article>
+            <span class="num">02</span>
+            <h3 data-i18n="a2.title">Learned from the real world</h3>
+            <p data-i18n="a2.body">They are trained on measurements from real systems, which are rich and noisy, so they capture what the equations leave out.</p>
+          </article>
+          <article>
+            <span class="num">03</span>
+            <h3 data-i18n="a3.title">Built for operation</h3>
+            <p data-i18n="a3.body">They run alongside the plant, fast enough to be useful, and report how much each estimate can be trusted.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="industries" id="industries" aria-labelledby="industries-title">
+      <div class="wrap">
+        <h2 id="industries-title" data-i18n="industries.title">Industries</h2>
+        <p class="section-lead" data-i18n="industries.lead">Wherever a physical process runs at scale and is watched through a handful of instruments.</p>
+        <ul class="tiles">
+          <li data-i18n="ind.energy">Energy</li>
+          <li data-i18n="ind.manufacturing">Manufacturing</li>
+          <li data-i18n="ind.aerospace">Aerospace</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="wrap two-col">
+        <h2 id="about-title" data-i18n="about.title">About</h2>
+        <div class="text">
+          <p data-i18n="about.p1">Neural Continuity Labs grew out of doctoral research in AI and 3D reconstruction at Université Paris-Saclay.</p>
+          <p data-i18n="about.p2">The company is founded by Akash Malhotra and supported by Inria Startup Studio.</p>
+          <p data-i18n="about.p3">Our long-term aim is a better understanding of the physical world, for people and for machines. We start where it matters most today: industrial systems.</p>
+        </div>
       </div>
     </section>
 
     <section class="contact" id="contact" aria-labelledby="contact-title">
-      <div class="wrap">
-        <h2 id="contact-title" data-i18n="contact.title">Contact</h2>
-        <p class="contact-lead"><a href="mailto:contact@neuralcontinuitylabs.com">contact@neuralcontinuitylabs.com</a></p>
+      <div class="wrap two-col">
+        <div>
+          <h2 id="contact-title" data-i18n="contact.title">Contact</h2>
+          <p class="contact-lead" data-i18n="contact.lead">For pilot projects, partnerships or questions.</p>
+          <p class="contact-mail"><a href="mailto:contact@neuralcontinuitylabs.com">contact@neuralcontinuitylabs.com</a></p>
+        </div>
         <form id="contact-form" novalidate>
           <label>
             <span data-i18n="form.name">Name</span>
@@ -82,6 +145,7 @@
   <footer>
     <div class="wrap">
       <span>© 2026 Neural Continuity Labs</span>
+      <span data-i18n="footer.place">Paris-Saclay, France</span>
       <a href="legal.html" data-i18n="footer.legal">Legal notice</a>
       <a href="legal.html#privacy" data-i18n="footer.privacy">Privacy</a>
     </div>
