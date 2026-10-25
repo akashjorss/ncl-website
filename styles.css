@@ -554,3 +554,10 @@ footer .wrap {
   opacity:1;
   transform:none}
 }
+
+.section-sub {
+  margin:18px 0 0;
+  max-width:46ch;
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.7}

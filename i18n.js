@@ -50,16 +50,13 @@ window.I18N = {
     "about.title": "About",
     "about.p1": "Neural Continuity Labs grew out of doctoral research in AI and 3D reconstruction at Université Paris-Saclay.",
     "about.p2": "The company is founded by Akash Malhotra and supported by Inria Startup Studio.",
-    "about.p3": "In the longer run, we want models that do science themselves: propose a hypothesis, test it against measurements, and improve. We start where it matters most today: industrial systems.",
+    "about.p3": "We start where it matters most today: industrial systems.",
     "contact.lead": "For pilot projects, partnerships or questions.",
     "footer.place": "Paris-Saclay, France",
-    "nav.research": "Research",
-    "research.title": "Research",
-    "research.lead": "Models that do science need a test. We build the tests too.",
-    "kb.venue": "NeurIPS 2026, Sim2Science workshop",
-    "kb.body": "A benchmark for scientific discovery from observer-centered astronomical observations: Tycho Brahe's Mars record and synthetic worlds, scored on prediction, global law and local law.",
-    "kb.paper": "Paper",
-    "kb.code": "Code and data"
+    "nav.ambition": "Ambition",
+    "ambition.title": "Ambition",
+    "ambition.statement": "We want to build superintelligence for science.",
+    "ambition.lead": "Models that propose a hypothesis, test it against measurements, and improve."
   },
   "de": {
     "meta.description": "Neural Continuity Labs entwickelt KI, die die Physik industrieller Systeme versteht. Physik und KI, angewandt in der Industrie.",
@@ -110,16 +107,13 @@ window.I18N = {
     "about.title": "Über uns",
     "about.p1": "Neural Continuity Labs ist aus Doktorandenforschung zu KI und 3D-Rekonstruktion an der Université Paris-Saclay hervorgegangen.",
     "about.p2": "Das Unternehmen wurde von Akash Malhotra gegründet und wird vom Inria Startup Studio unterstützt.",
-    "about.p3": "Längerfristig wollen wir Modelle, die selbst Wissenschaft betreiben: eine Hypothese aufstellen, sie an Messungen prüfen und sich verbessern. Wir beginnen dort, wo es heute am meisten zählt: bei industriellen Systemen.",
+    "about.p3": "Wir beginnen dort, wo es heute am meisten zählt: bei industriellen Systemen.",
     "contact.lead": "Für Pilotprojekte, Partnerschaften oder Fragen.",
     "footer.place": "Paris-Saclay, Frankreich",
-    "nav.research": "Forschung",
-    "research.title": "Forschung",
-    "research.lead": "Modelle, die Wissenschaft betreiben, brauchen einen Test. Wir bauen auch die Tests.",
-    "kb.venue": "NeurIPS 2026, Sim2Science-Workshop",
-    "kb.body": "Ein Benchmark für wissenschaftliche Entdeckung aus beobachterzentrierten astronomischen Beobachtungen: Tycho Brahes Marsaufzeichnungen und synthetische Welten, bewertet nach Vorhersage, globalem Gesetz und lokalem Gesetz.",
-    "kb.paper": "Paper",
-    "kb.code": "Code und Daten"
+    "nav.ambition": "Ambition",
+    "ambition.title": "Ambition",
+    "ambition.statement": "Wir wollen Superintelligenz für die Wissenschaft bauen.",
+    "ambition.lead": "Modelle, die eine Hypothese aufstellen, sie an Messungen prüfen und sich verbessern."
   },
   "fr": {
     "meta.description": "Neural Continuity Labs développe une IA qui comprend la physique des systèmes industriels. Physique et IA, appliquées à l'industrie.",
@@ -170,15 +164,12 @@ window.I18N = {
     "about.title": "À propos",
     "about.p1": "Neural Continuity Labs est issu de travaux de recherche doctorale en IA et en reconstruction 3D à l'Université Paris-Saclay.",
     "about.p2": "L'entreprise est fondée par Akash Malhotra et soutenue par Inria Startup Studio.",
-    "about.p3": "À plus long terme, nous voulons des modèles qui font eux-mêmes de la science : proposer une hypothèse, la confronter aux mesures et s'améliorer. Nous commençons là où cela compte le plus aujourd'hui : les systèmes industriels.",
+    "about.p3": "Nous commençons là où cela compte le plus aujourd'hui : les systèmes industriels.",
     "contact.lead": "Pour des projets pilotes, des partenariats ou des questions.",
     "footer.place": "Paris-Saclay, France",
-    "nav.research": "Recherche",
-    "research.title": "Recherche",
-    "research.lead": "Des modèles qui font de la science ont besoin d'un test. Nous construisons aussi les tests.",
-    "kb.venue": "NeurIPS 2026, atelier Sim2Science",
-    "kb.body": "Un benchmark pour la découverte scientifique à partir d'observations astronomiques centrées sur l'observateur : les relevés de Mars de Tycho Brahe et des mondes synthétiques, évalués sur la prédiction, la loi globale et la loi locale.",
-    "kb.paper": "Article",
-    "kb.code": "Code et données"
+    "nav.ambition": "Ambition",
+    "ambition.title": "Ambition",
+    "ambition.statement": "Nous voulons construire une superintelligence pour la science.",
+    "ambition.lead": "Des modèles qui proposent une hypothèse, la confrontent aux mesures et s'améliorent."
   }
 };
