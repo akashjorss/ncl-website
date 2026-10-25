@@ -53,14 +53,14 @@ window.I18N = {
     "about.p3": "The name is the research program behind the company: Neural Continuity, the study of differentiable computation as a regime with a boundary.",
     "contact.lead": "If you run a plant with a blind spot you would like to see into, write to us. Pilots, partnerships and questions are welcome.",
     "footer.place": "Paris-Saclay, France",
-    "nav.ambition": "Ambition",
-    "ambition.title": "Ambition",
-    "ambition.statement": "We want to build superintelligence for science.",
-    "ambition.lead": "A system that proposes hypotheses about the physical world, tests them against measurements, and keeps what survives. We start in industry, where every deployment is a falsifiable claim.",
     "hero.eyebrow": "Physics and AI, applied to industry",
     "hero.secondary": "How it works",
     "fig.label": "Fig. 1",
-    "fig.caption": "Eleven measurements. The field between them is the problem."
+    "fig.caption": "Eleven measurements. The field between them is the problem.",
+    "nav.mission": "Mission",
+    "mission.title": "Mission",
+    "mission.statement": "We want to build superintelligence for science.",
+    "mission.lead": "A system that proposes hypotheses about the physical world, tests them against measurements, and keeps what survives. We start in industry, where every deployment is a falsifiable claim."
   },
   "de": {
     "meta.description": "Der größte Teil der physischen Welt wird nie gemessen. Neural Continuity Labs entwickelt physikalisch fundierte KI, die rekonstruiert, was die Sensoren nicht sehen. Physik und KI, angewandt in der Industrie.",
@@ -114,14 +114,14 @@ window.I18N = {
     "about.p3": "Der Name ist das Forschungsprogramm hinter dem Unternehmen: Neural Continuity, die Untersuchung differenzierbarer Berechnung als Regime mit einer Grenze.",
     "contact.lead": "Wenn Sie eine Anlage mit einem blinden Fleck betreiben, in den Sie hineinsehen möchten, schreiben Sie uns. Pilotprojekte, Partnerschaften und Fragen sind willkommen.",
     "footer.place": "Paris-Saclay, Frankreich",
-    "nav.ambition": "Ambition",
-    "ambition.title": "Ambition",
-    "ambition.statement": "Wir wollen Superintelligenz für die Wissenschaft bauen.",
-    "ambition.lead": "Ein System, das Hypothesen über die physische Welt aufstellt, sie an Messungen prüft und behält, was besteht. Wir beginnen in der Industrie, wo jeder Einsatz eine falsifizierbare Behauptung ist.",
     "hero.eyebrow": "Physik und KI, angewandt in der Industrie",
     "hero.secondary": "Wie es funktioniert",
     "fig.label": "Abb. 1",
-    "fig.caption": "Elf Messungen. Das Feld dazwischen ist das Problem."
+    "fig.caption": "Elf Messungen. Das Feld dazwischen ist das Problem.",
+    "nav.mission": "Mission",
+    "mission.title": "Mission",
+    "mission.statement": "Wir wollen Superintelligenz für die Wissenschaft bauen.",
+    "mission.lead": "Ein System, das Hypothesen über die physische Welt aufstellt, sie an Messungen prüft und behält, was besteht. Wir beginnen in der Industrie, wo jeder Einsatz eine falsifizierbare Behauptung ist."
   },
   "fr": {
     "meta.description": "La plus grande partie du monde physique n'est jamais mesurée. Neural Continuity Labs développe une IA ancrée dans la physique qui reconstruit ce que les capteurs ne voient pas. Physique et IA, appliquées à l'industrie.",
@@ -175,13 +175,13 @@ window.I18N = {
     "about.p3": "Le nom est celui du programme de recherche derrière l'entreprise : Neural Continuity, l'étude du calcul différentiable comme régime doté d'une frontière.",
     "contact.lead": "Si vous exploitez une installation avec un angle mort que vous aimeriez voir, écrivez-nous. Projets pilotes, partenariats et questions bienvenus.",
     "footer.place": "Paris-Saclay, France",
-    "nav.ambition": "Ambition",
-    "ambition.title": "Ambition",
-    "ambition.statement": "Nous voulons construire une superintelligence pour la science.",
-    "ambition.lead": "Un système qui propose des hypothèses sur le monde physique, les confronte aux mesures et garde ce qui résiste. Nous commençons dans l'industrie, où chaque déploiement est une affirmation falsifiable.",
     "hero.eyebrow": "Physique et IA, appliquées à l'industrie",
     "hero.secondary": "Comment ça marche",
     "fig.label": "Fig. 1",
-    "fig.caption": "Onze mesures. Le champ entre elles est le problème."
+    "fig.caption": "Onze mesures. Le champ entre elles est le problème.",
+    "nav.mission": "Mission",
+    "mission.title": "Mission",
+    "mission.statement": "Nous voulons construire une superintelligence pour la science.",
+    "mission.lead": "Un système qui propose des hypothèses sur le monde physique, les confronte aux mesures et garde ce qui résiste. Nous commençons dans l'industrie, où chaque déploiement est une affirmation falsifiable."
   }
 };

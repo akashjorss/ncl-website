@@ -71,10 +71,10 @@ h3 { font-size: 32px; line-height: 1.12; margin: 22px 0 20px; max-width: 270px; 
 .tiles { grid-column: 7 / 13; list-style: none; counter-reset: industry; padding: 0; margin: 0; border-top: 1px solid var(--line); }
 .tiles li { counter-increment: industry; display: flex; align-items: center; gap: 26px; border-bottom: 1px solid var(--line); padding: 17px 0; font: 36px/1.2 var(--serif); letter-spacing: -.025em; }
 .tiles li::before { content: "0" counter(industry); font: 11px var(--mono); color: var(--muted); letter-spacing: 0; }
-.ambition { background: var(--paper-deep); }
-.ambition .wrap { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 0 24px; }
-.ambition h2 { grid-column: 1 / 4; }
-.ambition .section-lead { grid-column: 4 / 13; max-width: 750px; font-size: 64px; line-height: 1.07; }
+.mission { background: var(--paper-deep); }
+.mission .wrap { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 0 24px; }
+.mission h2 { grid-column: 1 / 4; }
+.mission .section-lead { grid-column: 4 / 13; max-width: 750px; font-size: 64px; line-height: 1.07; }
 .section-sub { grid-column: 4 / 11; margin: 28px 0 0; color: var(--muted); }
 .two-col { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; }
 .about h2 { grid-column: 1 / 4; }
@@ -130,7 +130,7 @@ footer .wrap, .footer-links, .footer-brand { display: flex; justify-content: spa
   .nav > a:not([data-i18n="nav.contact"]) { display: none; }
   .lang { padding-left: 6px; }
   .hero { padding: 46px 0 48px; }
-  .hero-inner, .two-col, .industries .wrap, .ambition .wrap { display: block; }
+  .hero-inner, .two-col, .industries .wrap, .mission .wrap { display: block; }
   .eyebrow { font-size: 10px; margin-bottom: 22px; }
   h1 { font-size: clamp(49px, 10.8vw, 76px); max-width: 600px; margin-bottom: 24px; }
   .lead { font-size: 17px; }
@@ -147,7 +147,7 @@ footer .wrap, .footer-links, .footer-brand { display: flex; justify-content: spa
   h3 { font-size: 32px; max-width: none; margin: 12px 0; }
   .industries .section-lead { padding: 0; font-size: 34px; margin-bottom: 30px; }
   .tiles li { font-size: 32px; padding: 16px 0; }
-  .ambition .section-lead { font-size: 46px; }
+  .mission .section-lead { font-size: 46px; }
   .section-sub { margin-top: 24px; }
   .contact-lead { font-size: 32px; }
   .contact-mail { font-size: clamp(19px, 4.5vw, 23px); }
@@ -167,5 +167,5 @@ footer .wrap, .footer-links, .footer-brand { display: flex; justify-content: spa
 
 /* long words in the large serif statements (superintelligence, Superintelligenz) on narrow screens */
 @media (max-width: 480px) {
-  .ambition .section-lead { font-size: clamp(28px, 9vw, 40px); hyphens: manual; overflow-wrap: normal; }
+  .mission .section-lead { font-size: clamp(28px, 9vw, 40px); hyphens: manual; overflow-wrap: normal; }
 }
