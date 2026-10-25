@@ -5,19 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Legal notice · Neural Continuity Labs</title>
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a1120">
   <meta name="theme-color" content="#0a1120" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
   <script src="i18n.js" defer></script>
   <script src="site.js" defer></script>
+  <script src="motion.js" defer></script>
 </head>
 <body data-page="legal">
   <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
   <header class="top">
     <div class="wrap">
-      <a class="brand" href="./">NCL</a>
+      <a class="brand" href="./"><span class="mark">NCL</span></a>
       <nav class="nav" aria-label="Site">
         <a href="./#contact" data-i18n="nav.contact">Contact</a>
         <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:lang.label">
@@ -48,9 +49,12 @@
 
   <footer>
     <div class="wrap">
-      <span>© 2026 Neural Continuity Labs</span>
-      <a href="legal.html" data-i18n="footer.legal">Legal notice</a>
-      <a href="legal.html#privacy" data-i18n="footer.privacy">Privacy</a>
+      <div class="footer-brand"><span>© 2026 Neural Continuity Labs</span></div>
+
+      <div class="footer-links">
+        <a href="legal.html" data-i18n="footer.legal">Legal notice</a>
+        <a href="legal.html#privacy" data-i18n="footer.privacy">Privacy</a>
+      </div>
     </div>
   </footer>
 </body>

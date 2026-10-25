@@ -1,58 +1,69 @@
-/* Hero background: particles carried by a slowly changing smooth flow field,
-   drawn as fading trails. Static single frame when the visitor prefers reduced motion. */
+/* A projected flow surface, with deterministic geometry for static captures. */
 (function () {
   "use strict";
-  var canvas = document.getElementById("field");
+  var canvas = document.getElementById('field');
   if (!canvas || !canvas.getContext) return;
-  var ctx = canvas.getContext("2d");
-  var reduce = (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) || /[?&]static\b/.test(location.search);
-  var W, H, dpr, particles = [], N = 300, t = 0, raf = null;
-
+  var ctx = canvas.getContext('2d');
+  if (!ctx) return;
+  var media = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var staticMode = new URLSearchParams(location.search).has('static');
+  var width, height, paths = [], raf = null, last = 0, visible = true;
   function resize() {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    W = canvas.clientWidth; H = canvas.clientHeight;
-    canvas.width = W * dpr; canvas.height = H * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.fillStyle = "#0a1120"; ctx.fillRect(0, 0, W, H);
-    particles = [];
-    for (var i = 0; i < N; i++) particles.push(spawn(true));
-  }
-  function spawn(anywhere) {
-    return { x: Math.random() * W, y: Math.random() * H, life: anywhere ? Math.random() * 300 : 0, max: 200 + Math.random() * 300 };
-  }
-  // smooth divergence-free-looking field from a few sinusoids
-  function vel(x, y, t) {
-    var s = 1 / Math.max(W, H) * 3.2;
-    var a = Math.sin(y * s * 1.3 + t * 0.00021) + 0.6 * Math.cos(x * s * 0.7 - t * 0.00017);
-    var b = Math.cos(x * s * 1.1 - t * 0.00019) + 0.6 * Math.sin(y * s * 0.9 + t * 0.00023);
-    return { vx: a * 0.55, vy: b * 0.55 };
-  }
-  function step(now) {
-    t = now;
-    ctx.fillStyle = "rgba(10, 17, 32, 0.08)";   // fade old trails
-    ctx.fillRect(0, 0, W, H);
-    ctx.lineWidth = 1.2;
-    for (var i = 0; i < particles.length; i++) {
-      var p = particles[i], v = vel(p.x, p.y, t);
-      var nx = p.x + v.vx, ny = p.y + v.vy;
-      var k = Math.min(p.life / 60, 1) * Math.min((p.max - p.life) / 60, 1);
-      ctx.strokeStyle = "rgba(96, 148, 255, " + (0.42 * k).toFixed(3) + ")";
-      ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(nx, ny); ctx.stroke();
-      p.x = nx; p.y = ny; p.life++;
-      if (p.life > p.max || nx < -5 || ny < -5 || nx > W + 5 || ny > H + 5) particles[i] = spawn(false);
+    width = canvas.clientWidth; height = canvas.clientHeight;
+    var ratio = Math.min(window.devicePixelRatio || 1, 1.5);
+    canvas.width = width * ratio; canvas.height = height * ratio;
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    paths = [];
+    for (var line = 0; line < 76; line++) {
+      var points = [], v = (line / 75 - .5) * 2;
+      for (var j = 0; j <= 140; j++) {
+        var u = j / 140;
+        var pinch = .14 + .85 * Math.pow(Math.abs(u - .48) * 2, 1.35);
+        var x = width * (.38 + .72 * u) + Math.sin(u * 5.8 + v * 1.3) * width * .045;
+        var y = height * (.56 + .16 * Math.sin(u * 5.8 - .7) + v * pinch * .46);
+        points.push([x, y]);
+      }
+      paths.push(points);
     }
-    if (!reduce) raf = requestAnimationFrame(step);
+    draw(0);
   }
-  function start() {
-    resize();
-    if (reduce) { for (var i = 0; i < 420; i++) step(i * 16); return; }
-    raf = requestAnimationFrame(step);
+  function draw(time) {
+    ctx.clearRect(0, 0, width, height);
+    var glow = ctx.createRadialGradient(width * .76, height * .5, 0, width * .76, height * .5, width * .46);
+    glow.addColorStop(0, 'rgba(37,99,235,.15)'); glow.addColorStop(1, 'rgba(37,99,235,0)');
+    ctx.fillStyle = glow; ctx.fillRect(0, 0, width, height);
+    for (var i = 0; i < paths.length; i++) {
+      var points = paths[i];
+      var alpha = .13 + .3 * Math.pow(Math.sin(i * .28), 2);
+      ctx.strokeStyle = 'rgba(91,155,255,' + alpha + ')';
+      ctx.lineWidth = i % 7 === 0 ? 1.15 : .55;
+      ctx.beginPath();
+      points.forEach(function (p, index) { if (!index) ctx.moveTo(p[0], p[1]); else ctx.lineTo(p[0], p[1]); });
+      ctx.stroke();
+      if (i % 3 === 0) {
+        var head = Math.floor((time * .012 + i * 7) % 122) + 18;
+        for (var k = 18; k > 0; k--) {
+          var a = points[head - k], b = points[head - k + 1];
+          ctx.strokeStyle = 'rgba(157,201,255,' + ((1 - k / 19) * .65) + ')';
+          ctx.lineWidth = 1.3;ctx.beginPath();ctx.moveTo(a[0], a[1]);ctx.lineTo(b[0], b[1]);ctx.stroke();
+        }
+      }
+    }
+  }
+  function tick(time) {
+    if (time - last > 32) { draw(time); last = time; }
+    raf = requestAnimationFrame(tick);
+  }
+  function sync() {
+    if (raf) cancelAnimationFrame(raf);
+    raf = null;
+    if (!staticMode && !media.matches && !document.hidden && visible) raf = requestAnimationFrame(tick);
+    else if (staticMode || media.matches) draw(0);
   }
   var timer;
-  window.addEventListener("resize", function () { clearTimeout(timer); timer = setTimeout(resize, 150); });
-  document.addEventListener("visibilitychange", function () {
-    if (document.hidden) { if (raf) cancelAnimationFrame(raf); raf = null; }
-    else if (!reduce && !raf) raf = requestAnimationFrame(step);
-  });
-  start();
+  window.addEventListener('resize', function () { clearTimeout(timer); timer = setTimeout(function () { resize(); sync(); }, 150); });
+  document.addEventListener('visibilitychange', sync);
+  media.addEventListener('change', sync);
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (entries) { visible = entries[0].isIntersecting; sync(); }).observe(canvas);
+  resize(); sync();
 })();
