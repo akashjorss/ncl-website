@@ -56,7 +56,10 @@ window.I18N = {
     "privacy.p1": "This site sets no cookies and uses no analytics. GitHub may record technical data, including your IP address, in server logs to deliver these pages.",
     "privacy.p2": "The contact form sends your name, email address, and message to our mailbox through FormSubmit (formsubmit.co). We use them only to reply to you and keep them no longer than needed to handle your request.",
     "privacy.p4": "Your language preference is stored locally in your browser when you select a language. Fonts and visual assets are served with the site; they make no requests to third-party font services.",
-    "meta.description": "We develop neural methods to reconstruct, model, and understand physical systems, starting with industrial processes."
+    "meta.description": "We develop neural methods to reconstruct, model, and understand physical systems, starting with industrial processes.",
+    "nftm.type": "Framework · Software · Paper",
+    "nftm.venue": "NeurIPS 2025 · Machine Learning and the Physical Sciences (ML4PS)",
+    "nftm.summary": "A framework for local, iterative computation on neurally continuous spatial fields, instantiated for cellular automata, heat-equation dynamics, and image inpainting."
   },
   "fr": {
     "skip": "Aller au contenu",
@@ -114,7 +117,10 @@ window.I18N = {
     "privacy.p1": "Ce site n’utilise ni cookies ni outils d’analyse. GitHub peut consigner des données techniques, dont votre adresse IP, dans ses journaux serveur pour fournir les pages.",
     "privacy.p2": "Le formulaire transmet votre nom, votre adresse électronique et votre message à notre boîte de réception via FormSubmit (formsubmit.co). Ces informations servent uniquement à vous répondre et sont conservées le temps nécessaire au traitement de votre demande.",
     "privacy.p4": "Votre préférence linguistique est enregistrée localement dans votre navigateur lorsque vous choisissez une langue. Les polices et les éléments visuels sont hébergés avec le site, sans requête à un service de polices tiers.",
-    "meta.description": "Nous développons des méthodes neuronales pour reconstruire, modéliser et comprendre les systèmes physiques, en commençant par les procédés industriels."
+    "meta.description": "Nous développons des méthodes neuronales pour reconstruire, modéliser et comprendre les systèmes physiques, en commençant par les procédés industriels.",
+    "nftm.type": "Cadre théorique · Logiciel · Article",
+    "nftm.venue": "NeurIPS 2025 · Machine Learning and the Physical Sciences (ML4PS)",
+    "nftm.summary": "Un cadre de calcul local et itératif sur des champs spatiaux neuronalement continus, appliqué aux automates cellulaires, à l’équation de la chaleur et à la complétion d’images."
   },
   "de": {
     "skip": "Zum Inhalt springen",
@@ -172,6 +178,9 @@ window.I18N = {
     "privacy.p1": "Diese Website setzt keine Cookies und verwendet keine Analysedienste. GitHub kann technische Daten wie Ihre IP-Adresse in Server-Logs erfassen, um die Seiten auszuliefern.",
     "privacy.p2": "Das Kontaktformular übermittelt Ihren Namen, Ihre E-Mail-Adresse und Ihre Nachricht über FormSubmit (formsubmit.co) an unser Postfach. Wir verwenden diese Angaben nur zur Beantwortung und speichern sie nicht länger als für Ihre Anfrage nötig.",
     "privacy.p4": "Ihre Sprachwahl wird lokal in Ihrem Browser gespeichert, wenn Sie eine Sprache auswählen. Schriftarten und visuelle Inhalte werden mit der Website ausgeliefert, ohne Anfragen an externe Schriftdienste.",
-    "meta.description": "Wir entwickeln neuronale Methoden, um physikalische Systeme zu rekonstruieren, zu modellieren und zu verstehen, beginnend mit industriellen Prozessen."
+    "meta.description": "Wir entwickeln neuronale Methoden, um physikalische Systeme zu rekonstruieren, zu modellieren und zu verstehen, beginnend mit industriellen Prozessen.",
+    "nftm.type": "Framework · Software · Publikation",
+    "nftm.venue": "NeurIPS 2025 · Machine Learning and the Physical Sciences (ML4PS)",
+    "nftm.summary": "Ein Framework für lokale, iterative Berechnung auf neuronal kontinuierlichen räumlichen Feldern, umgesetzt für zelluläre Automaten, die Wärmegleichung und Bildvervollständigung."
   }
 };

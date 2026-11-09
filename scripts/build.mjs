@@ -66,7 +66,9 @@ for (const file of (await fs.readdir(path.join(root, "content/notes"))).filter(
     hasMath: /\$/.test(match[2]),
   });
 }
-notes.sort((a, b) => b.date.localeCompare(a.date));
+notes.sort(
+  (a, b) => b.date.localeCompare(a.date) || b.slug.localeCompare(a.slug),
+);
 const date = (d) =>
   new Date(d + "T12:00:00Z").toLocaleDateString("en-GB", {
     day: "2-digit",

@@ -13,7 +13,9 @@ const htmlFiles = [
   "contact.html",
   "legal.html",
   "notes/index.html",
-  "notes/can-a-machine-rediscover-keplers-laws/index.html",
+  ...(await fs.readdir(path.join(root, "notes"), { recursive: true }))
+    .filter((file) => file.endsWith("/index.html"))
+    .map((file) => "notes/" + file),
   "404.html",
 ];
 const context = { window: {} };

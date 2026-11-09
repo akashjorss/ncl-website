@@ -8,10 +8,10 @@ The branch `redesign/editorial-field` starts from `main`. Neither `main` nor `no
 
 ## Checks
 
-- Static checks pass for seven pages, 88 local resources/anchors, and 100 translated interface instances in EN, FR and DE.
+- Static checks pass for ten pages, 141 local resources/anchors, and 142 translated interface instances in EN, FR and DE.
 - Markdown checks cover headings, lists, code, links, figures, tables and KaTeX/MathML equations.
 - Mix weights remain bounded, sum to one and vary continuously across the 140-second cycle. The procedural clock is independent of the mixture cycle.
-- All 66 browser checks pass: layouts at 1440, 1280, 390 and 320 CSS pixels, headings, language selection and navigation, English article fallback, WebGL initialization, and contact validation, success, provider rejection and network failure.
+- All 94 browser checks pass: layouts at 1440, 1280, 390 and 320 CSS pixels, headings, language selection and navigation, English article fallback, accessible equations at all four widths, WebGL initialization, and contact validation, success, provider rejection and network failure.
 - All seven field lifecycle checks pass: static reduced-motion rendering, unavailable-WebGL fallback, capped drawing, context loss and restoration, offscreen pause, and script-error capture. The local render sample measured approximately 26 fps at a 960 by 711 drawing buffer. This is a local sample, not a performance guarantee for every device.
 - JavaScript syntax checks and `git diff --check` pass. `npm audit` reports zero vulnerabilities for the locked build dependencies.
 - An extension-free Chrome session showed no site script errors. A JSON parse error seen in the normal profile was absent there; production code is not changed to accommodate third-party browser extensions.
@@ -48,3 +48,7 @@ await import('/scripts/field-check.js?run=1');
 ```
 
 The first script never sends a real contact request. The second uses temporary isolated frames and simulated graphics-context loss. Do not interpret those simulated states as production errors.
+
+## Research-note revision
+
+The notebook now contains four succinct notes (approximately 160 words each): KeplerBench, NFTM, neural continuity and why NCL exists. The KeplerBench note explicitly names acceptance at the NeurIPS 2026 Sim2Science workshop. NFTM bibliographic details and the neural-continuity definition were checked against the official ML4PS 2025 accepted-paper listing and workshop PDF, Section 3 and Appendix B. NFTM is also listed on the Research page in EN, FR and DE. The workshop version is used for its updated computational-framework framing and explicit definition of neural continuity.

@@ -23,6 +23,9 @@ for (const width of [1440, 1280, 390, 320]) {
     "/contact.html?lang=en",
     "/notes/?lang=en",
     "/notes/can-a-machine-rediscover-keplers-laws/?lang=fr",
+    "/notes/physics-as-neural-turing-computation/?lang=en",
+    "/notes/neural-continuity/?lang=en",
+    "/notes/why-ncl-exists/?lang=en",
     "/legal.html?lang=en",
   ]) {
     const frame = await page(url, width),
@@ -34,6 +37,13 @@ for (const width of [1440, 1280, 390, 320]) {
       `${d.documentElement.scrollWidth}/${w.innerWidth}`,
     );
     check(`heading ${width} ${url}`, d.querySelectorAll("h1").length === 1);
+    if (url.includes("/notes/neural-continuity/")) {
+      check(
+        `Accessible equation ${width}`,
+        d.querySelector(".katex-mathml math") &&
+          d.querySelector(".katex-display").scrollWidth <= w.innerWidth,
+      );
+    }
     frame.remove();
   }
 }
@@ -68,7 +78,7 @@ check(
   note.contentDocument.querySelector("article").lang === "en" &&
     note.contentDocument
       .querySelector(".prose")
-      .textContent.includes("Kepler could not watch Mars"),
+      .textContent.includes("KeplerBench"),
 );
 check(
   "Translation fallback notice",
