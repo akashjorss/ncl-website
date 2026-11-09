@@ -56,3 +56,9 @@ The notebook now contains four succinct notes (approximately 150 to 170 words ea
 ## Design comparison
 
 `qa/design-directions.html` contains five separate composition studies for selection. These use a still captured from the WebGL field. Their overall layouts have not been applied to the homepage. The current homepage has the requested shorter hero copy in EN, FR and DE, and its redundant lab-name eyebrow is removed. The official Inria and Paris-Saclay SVG logos appear in the shared footer under IN MATURATION WITH. The five studies and final homepage copy were visually inspected in Chrome. Static checks were rerun after the copy and date-list changes; the 94 browser and seven graphics checks passed before those final text/layout edits.
+
+## Additional visual identities
+
+Five further studies (11 to 15) live under `qa/modern-directions/`. They are independent previews with shared prototype CSS and the existing live field module. The proposed identities use different typography, composition and color. The production homepage has not adopted any study. Navigation links lead to the existing supporting pages; language abbreviations in these studies are visual placeholders.
+
+All five were visually reviewed in desktop Chrome. The Instrument was also reviewed at 390 CSS pixels. Browser measurements covered every study at 1440, 1280, 390 and 320 pixels, with 20 of 20 combinations passing the horizontal-overflow, single-h1 and loaded-image checks. These checks cover composition previews, not a completed rollout to every supporting page.
