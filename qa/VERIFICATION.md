@@ -70,3 +70,7 @@ Akash selected option 7. The implemented website now uses the Mineral palette ac
 After implementation, all 94 browser checks and seven field checks passed. Responsive checks cover 1440, 1280, 390 and 320 CSS pixels, EN/FR/DE navigation, English note fallback, accessible math and mocked contact success/failure. The local field sample measured 25.5 fps with a 640 by 474 drawing buffer. Static validation passes for ten pages, 158 local resources/anchors and 141 translation keys. Contact email delivery was not exercised.
 
 Reviewed the actual homepage in desktop and mobile Chrome emulation. Current screenshots are `qa/mineral-desktop.png` (1440 CSS pixels) and `qa/mineral-mobile.png` (390 CSS pixels), kept locally. The preview remains at http://127.0.0.1:8140/. Changes remain on `redesign/editorial-field`; GitHub Pages and the live domain continue using main.
+
+## Readability update
+
+Raised the introduction and note summaries to 16px, navigation and primary links to 14px, footer copy to 13px, legal links to 12px, and small section labels to 11 or 12px. Article prose and heading sizes are unchanged. Laptop spacing stacks the hero contact link below its paragraph, and mobile navigation keeps 44px link height. All 94 browser checks passed at 1440, 1280, 390 and 320 CSS pixels; the larger desktop text and mobile homepage/footer were also visually reviewed in Chrome.
