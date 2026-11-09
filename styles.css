@@ -21,11 +21,11 @@
 }
 :root {
   color-scheme: light;
-  --paper: #f7f6f2;
-  --ink: #202723;
-  --muted: #60675f;
-  --line: #d7d9cf;
-  --accent: #375d53;
+  --paper: #edf2ed;
+  --ink: #193c34;
+  --muted: #526f62;
+  --line: #c5d4cb;
+  --accent: #286a52;
   --night: #030d18;
   --serif: Newsreader, Georgia, serif;
   --sans: "DM Sans", Arial, sans-serif;
@@ -530,7 +530,7 @@ h1 {
 .prose pre {
   font: 12px/1.7 var(--mono);
   padding: 22px;
-  background: #eeeee7;
+  background: #e4ebe5;
   overflow: auto;
 }
 .prose code {
@@ -639,7 +639,7 @@ textarea:focus {
   color: #9b3c32;
 }
 .status.ok {
-  color: #375d53;
+  color: #286a52;
 }
 .legal-body {
   max-width: 700px;
@@ -1019,4 +1019,40 @@ textarea:focus {
     width: 98px;
     max-width: 98px;
   }
+}
+
+/* Mineral: compact introduction, panoramic field, one featured research note. */
+.brand .mark { color: var(--accent); }
+.text-link { color: var(--accent); border-color: currentColor; }
+.hero { padding: 44px 0 38px; }
+.hero-inner { grid-template-columns: 1.3fr 1fr; gap: 70px; align-items: start; }
+.hero h1 { font-size: clamp(49px, 4.3vw, 64px); line-height: 1.04; max-width: 680px; }
+.hero-copy { display: flex; align-items: end; justify-content: space-between; gap: 30px; padding: 4px 0 0; }
+.hero-copy p { font-size: 14px; line-height: 1.75; color: var(--ink); max-width: 300px; margin: 0; }
+.hero-copy .text-link { flex-shrink: 0; font-size: 11px; gap: 16px; }
+.field-wrap { width: min(1440px, 100%); margin-inline: auto; }
+.field-wrap .field-shell { aspect-ratio: 2.38; }
+.lab-notes { padding: 46px 0 52px; }
+.lab-notes h2 { font: 10px/1.6 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.lab-notes .note-row { border: 0; }
+.lab-notes .note-row > a { display: block; padding: 0; }
+.lab-notes .note-row h3 { font-size: 35px; max-width: 620px; }
+.lab-notes .note-row .arrow { display: none; }
+.notebook-link { display: inline-block; font-size: 11px; color: var(--accent); margin-top: 16px; }
+@media (min-width: 1600px) { .hero { padding-top: 50px; } }
+@media (max-width: 1100px) {
+  .hero-inner { gap: 40px; }
+  .hero-copy { display: block; }
+  .hero-copy p { max-width: 350px; }
+  .hero-copy .text-link { margin-top: 18px; }
+}
+@media (max-width: 760px) {
+  .hero { padding: 34px 0 32px; }
+  .hero h1 { font-size: clamp(46px, 10.5vw, 65px); }
+  .hero-copy { padding-top: 23px; }
+  .hero-copy p { font-size: 15px; max-width: 390px; }
+  .field-wrap .field-shell { margin: 0; aspect-ratio: 1.35; }
+  .lab-notes { padding: 34px 0 40px; }
+  .lab-notes h2 { margin-bottom: 23px; }
+  .lab-notes .note-row h3 { font-size: 31px; }
 }

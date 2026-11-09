@@ -8,7 +8,7 @@ The branch `redesign/editorial-field` starts from `main`. Neither `main` nor `no
 
 ## Checks
 
-- Static checks pass for ten pages, 159 local resources/anchors, and 141 translated interface instances in EN, FR and DE.
+- Static checks pass for ten pages, 158 local resources/anchors, and 141 translated interface instances in EN, FR and DE.
 - Markdown checks cover headings, lists, code, links, figures, tables and KaTeX/MathML equations.
 - Mix weights remain bounded, sum to one and vary continuously across the 140-second cycle. The procedural clock is independent of the mixture cycle. A persistent GPU transport pass supplies all four field views.
 - All 94 browser checks pass: layouts at 1440, 1280, 390 and 320 CSS pixels, headings, language selection and navigation, English article fallback, accessible equations at all four widths, WebGL initialization, and contact validation, success, provider rejection and network failure.
@@ -62,3 +62,11 @@ The notebook now contains four succinct notes (approximately 150 to 170 words ea
 Five further studies (11 to 15) live under `qa/modern-directions/`. They are independent previews with shared prototype CSS and the existing live field module. The proposed identities use different typography, composition and color. The production homepage has not adopted any study. Navigation links lead to the existing supporting pages; language abbreviations in these studies are visual placeholders.
 
 All five were visually reviewed in desktop Chrome. The Instrument was also reviewed at 390 CSS pixels. Browser measurements covered every study at 1440, 1280, 390 and 320 pixels, with 20 of 20 combinations passing the horizontal-overflow, single-h1 and loaded-image checks. These checks cover composition previews, not a completed rollout to every supporting page.
+
+## Selected Mineral design
+
+Akash selected option 7. The implemented website now uses the Mineral palette across the homepage, notes, research, contact and legal pages. The homepage adopts the compact Field Atlas introduction, panoramic field and single featured KeplerBench note, with a link to the complete notebook. The favicon, browser theme color and generated social preview use the new palette.
+
+After implementation, all 94 browser checks and seven field checks passed. Responsive checks cover 1440, 1280, 390 and 320 CSS pixels, EN/FR/DE navigation, English note fallback, accessible math and mocked contact success/failure. The local field sample measured 25.5 fps with a 640 by 474 drawing buffer. Static validation passes for ten pages, 158 local resources/anchors and 141 translation keys. Contact email delivery was not exercised.
+
+Reviewed the actual homepage in desktop and mobile Chrome emulation. Current screenshots are `qa/mineral-desktop.png` (1440 CSS pixels) and `qa/mineral-mobile.png` (390 CSS pixels), kept locally. The preview remains at http://127.0.0.1:8140/. Changes remain on `redesign/editorial-field`; GitHub Pages and the live domain continue using main.

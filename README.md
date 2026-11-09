@@ -1,6 +1,6 @@
 # Neural Continuity Labs
 
-Static editorial website for https://neuralcontinuitylabs.com. GitHub Pages serves the committed files at the repository root from `main`. `CNAME` and `.nojekyll` are unchanged. The redesign is on `redesign/editorial-field`, based on `main`; `nov-polish` remains separate and unchanged. Pushing the redesign branch does not publish it.
+Mineral editorial website for https://neuralcontinuitylabs.com. GitHub Pages serves the committed files at the repository root from `main`. `CNAME` and `.nojekyll` are unchanged. The redesign is on `redesign/editorial-field`, based on `main`; `nov-polish` remains separate and unchanged. Pushing the redesign branch does not publish it.
 
 ## Local preview
 
@@ -15,6 +15,8 @@ npm run preview
 Open http://127.0.0.1:8140/. The server binds only to this machine. All generated HTML is committed, so GitHub Pages needs no Node build workflow or server-side runtime. After approval, publish by merging the completed branch into `main` through the usual Git workflow.
 
 ## Structure
+
+The selected Mineral design uses pale sage `#EDF2ED`, forest ink `#193C34`, and green accents `#286A52`. Its compact homepage introduces one featured note beneath a panoramic field. Shared styles carry the palette through research, contact, legal, and article pages.
 
 - `templates/`: page bodies. `scripts/build.mjs`: shared shell, Markdown rendering, notes index, sitemap, and static HTML generation.
 - `content/notes/`: original English Markdown notes with simple frontmatter.
@@ -56,7 +58,7 @@ $$
 </figure>
 ```
 
-Use fenced blocks for code. Standard Markdown supports headings, lists, tables, images, and links. `$...$` and `$$...$$` render through KaTeX to HTML and accessible MathML at build time. HTML figures are allowed because content is authored locally and trusted; never compile unreviewed third-party HTML. Add figures to `assets/`, then run `npm run build` and `npm run check`. The home list (latest three), notes index, article, and sitemap update automatically. Commit the source and generated files together. The note lists omit dates; individual articles retain their publication date. Keep dates factual; translations of scientific articles are not generated.
+Use fenced blocks for code. Standard Markdown supports headings, lists, tables, images, and links. `$...$` and `$$...$$` render through KaTeX to HTML and accessible MathML at build time. HTML figures are allowed because content is authored locally and trusted; never compile unreviewed third-party HTML. Add figures to `assets/`, then run `npm run build` and `npm run check`. The notes index, article, and sitemap update automatically. The homepage features the KeplerBench note; change the featured slug in `scripts/build.mjs` to select another note. Commit the source and generated files together. The note lists omit dates; individual articles retain their publication date. Keep dates factual; translations of scientific articles are not generated.
 
 ## Verification
 

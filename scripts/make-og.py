@@ -1,17 +1,17 @@
 """Render the social preview from the site's own typography and field motif."""
 from PIL import Image, ImageDraw, ImageFont
 import math
-im = Image.new('RGB', (1200, 630), '#f7f6f2')
+im = Image.new('RGB', (1200, 630), '#edf2ed')
 d = ImageDraw.Draw(im)
 def serif(size): return ImageFont.truetype('assets/fonts/newsreader.ttf', size)
 def sans(size): return ImageFont.truetype('assets/fonts/dm-sans.ttf', size)
-d.text((62, 45), 'NCL', font=serif(43), fill='#202723')
-d.text((160, 55), 'Neural Continuity Labs', font=sans(15), fill='#202723')
-d.line((62, 108, 1138, 108), fill='#d7d9cf')
-d.text((62, 169), 'Neural physics', font=serif(74), fill='#202723')
-d.text((62, 247), 'for the real world.', font=serif(74), fill='#202723')
-d.text((62, 439), 'Reconstruct. Model. Understand.', font=sans(19), fill='#60675f')
-d.text((62, 549), 'neuralcontinuitylabs.com', font=sans(14), fill='#60675f')
+d.text((62, 45), 'NCL', font=serif(43), fill='#193c34')
+d.text((160, 55), 'Neural Continuity Labs', font=sans(15), fill='#193c34')
+d.line((62, 108, 1138, 108), fill='#c5d4cb')
+d.text((62, 169), 'Neural physics', font=serif(74), fill='#193c34')
+d.text((62, 247), 'for the real world.', font=serif(74), fill='#193c34')
+d.text((62, 439), 'Reconstruct. Model. Understand.', font=sans(19), fill='#526f62')
+d.text((62, 549), 'neuralcontinuitylabs.com', font=sans(14), fill='#526f62')
 d.rectangle((710, 159, 1138, 517), fill='#030d18')
 for j in range(40):
     points = []
