@@ -78,3 +78,11 @@ Raised the introduction and note summaries to 16px, navigation and primary links
 ## Larger type scale after screenshot review
 
 Increased desktop navigation and primary links to 16px, hero and note summaries to 18px, the homepage headline to 60px, and footer text to 14 to 16px. Mobile navigation scales between 14px and 16px to fit narrow screens. Added a content hash to the shared stylesheet URL, so changed CSS gets a new browser cache key. All 94 browser checks pass; desktop and 390px mobile layouts were visually reviewed.
+
+## Translations and typography experiments
+
+All four notes now have separately authored French and German Markdown counterparts. Titles and descriptions are localized on the homepage and notes index. The article switcher changes prose, headings, metadata, content language and accessible equations together. GitHub links, numerical results, supplied-physics qualifications and venue names are preserved; no paper links were added. Optional future notes without a translation retain an explicit English fallback.
+
+The static build still emits ten pages, with one generated dictionary for note metadata and trusted article translations embedded as escaped JSON. Static validation covers 168 local references and 157 translated interface instances. All 178 browser checks passed, including each note in three languages at 1440, 390 and 320 pixels, translated math, and switching an article through FR/DE/EN. French and German article layouts were visually reviewed in Chrome.
+
+`qa/type-study.html` compares three complete type scales with desktop/phone and language controls. The middle Editorial scale was selected after visual comparison: 64px desktop hero, 38px featured-note title, 18px supporting text, with 49px/34px headings on phones. The stylesheet and language scripts use content-hashed URLs to prevent older cached files from hiding updates.

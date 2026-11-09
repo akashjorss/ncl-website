@@ -27,10 +27,7 @@ const md = new MarkdownIt({ html: true, linkify: true }).use(texmath, {
 });
 md.renderer.rules.table_open = () => '<div class="table-scroll"><table>\n';
 md.renderer.rules.table_close = () => "</table></div>\n";
-const notes = [];
-for (const file of (await fs.readdir(path.join(root, "content/notes"))).filter(
-  (f) => f.endsWith(".md"),
-)) {
+async function readNote(file) {
   const source = await fs.readFile(
     path.join(root, "content/notes", file),
     "utf8",
@@ -60,14 +57,33 @@ for (const file of (await fs.readdir(path.join(root, "content/notes"))).filter(
     !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(meta.slug)
   )
     throw new Error(`Invalid date or slug in ${file}`);
-  if (notes.some((n) => n.slug === meta.slug))
-    throw new Error(`Duplicate slug ${meta.slug}`);
-  notes.push({
-    ...meta,
-    html: md.render(match[2]),
-    hasMath: /\$/.test(match[2]),
-  });
+  return { ...meta, html: md.render(match[2]), hasMath: /\$/.test(match[2]) };
 }
+const notes = [];
+for (const file of (await fs.readdir(path.join(root, "content/notes"))).filter(f => f.endsWith(".md"))) {
+  const note = await readNote(file);
+  if (notes.some(n => n.slug === note.slug)) throw new Error(`Duplicate slug ${note.slug}`);
+  note.translations = { en: { title: note.title, description: note.description, html: note.html } };
+  for (const lang of ["fr", "de"]) {
+    try {
+      const translation = await readNote(path.join(lang, file));
+      if (translation.slug !== note.slug || translation.date !== note.date) throw new Error(`Translation metadata mismatch: ${lang}/${file}`);
+      note.translations[lang] = { title: translation.title, description: translation.description, html: translation.html };
+      note.hasMath ||= translation.hasMath;
+    } catch (error) { if (error.code !== "ENOENT") throw error; }
+  }
+  notes.push(note);
+}
+const noteDictionaries = Object.fromEntries(["en", "fr", "de"].map(lang => [lang,
+  Object.fromEntries(notes.flatMap(note => {
+    const text = note.translations[lang] || note.translations.en;
+    return [[`note.${note.slug}.title`, text.title], [`note.${note.slug}.description`, text.description]];
+  }))
+]));
+const notesScript = `// Generated note titles and summaries. Edit content/notes/.\nObject.entries(${JSON.stringify(noteDictionaries)}).forEach(([lang, entries]) => Object.assign(window.I18N[lang], entries));\n`;
+await fs.writeFile(path.join(root, "notes-i18n.js"), notesScript);
+const notesVersion = createHash("sha256").update(notesScript).digest("hex").slice(0, 10);
+const siteVersion = createHash("sha256").update(await fs.readFile(path.join(root, "site.js"))).digest("hex").slice(0, 10);
 notes.sort(
   (a, b) => b.date.localeCompare(a.date) || b.slug.localeCompare(a.slug),
 );
@@ -84,7 +100,7 @@ function noteList(items) {
     items
       .map(
         (note) =>
-          `<li class="note-row"><a href="/notes/${note.slug}/"><div lang="en"><h3>${escape(note.title)}</h3><p>${escape(note.description)}</p></div><span class="arrow" aria-hidden="true">↗</span></a></li>`,
+          `<li class="note-row"><a href="/notes/${note.slug}/"><div><h3 data-i18n="note.${note.slug}.title">${escape(note.title)}</h3><p data-i18n="note.${note.slug}.description">${escape(note.description)}</p></div><span class="arrow" aria-hidden="true">↗</span></a></li>`,
       )
       .join("") +
     "</ol>"
@@ -107,7 +123,7 @@ function layout({
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escape(title)}</title><meta name="description" content="${escape(description)}"><meta name="theme-color" content="#EDF2ED">${page === "legal" || page === "404" ? '<meta name="robots" content="noindex">' : ""}<link rel="canonical" href="${canonical}"><link rel="icon" href="/favicon.svg" type="image/svg+xml">
 ${!article ? ["en", "fr", "de", "x-default"].map((lang) => `<link rel="alternate" hreflang="${lang}" href="${canonical}${lang === "x-default" ? "" : "?lang=" + lang}">`).join("\n") : ""}
 <meta property="og:type" content="${article ? "article" : "website"}"><meta property="og:site_name" content="Neural Continuity Labs"><meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${origin}/assets/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
-<link rel="preload" href="/assets/fonts/newsreader.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="/styles.css?v=${styleVersion}">${math ? '<link rel="stylesheet" href="/assets/math/katex.min.css">' : ""}<script src="/i18n.js" defer></script><script src="/site.js" defer></script>${page === "index" ? '<script src="/field.js" type="module"></script>' : ""}</head>
+<link rel="preload" href="/assets/fonts/newsreader.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="/styles.css?v=${styleVersion}">${math ? '<link rel="stylesheet" href="/assets/math/katex.min.css">' : ""}<script src="/i18n.js" defer></script><script src="/notes-i18n.js?v=${notesVersion}" defer></script><script src="/site.js?v=${siteVersion}" defer></script>${page === "index" ? '<script src="/field.js" type="module"></script>' : ""}</head>
 <body data-page="${page}"><a class="skip" href="#main" data-i18n="skip">Skip to content</a><header class="top"><div class="wrap"><a class="brand" href="/" aria-label="Neural Continuity Labs home"><span class="mark" aria-hidden="true">NCL</span><span class="brand-text">Neural Continuity<br>Labs</span></a><nav class="nav" aria-label="Main navigation">${nav("notes", "/notes/", "nav.notes", "Notes from the Lab")}${nav("research", "/research.html", "nav.research", "Research")}${nav("contact", "/contact.html", "nav.contact", "Contact")}<div class="languages" role="group" aria-label="Language" data-i18n-attr="aria-label:lang.label"><button type="button" data-lang="en" aria-pressed="true" lang="en" aria-label="English">EN</button><button type="button" data-lang="fr" aria-pressed="false" lang="fr" aria-label="Français">FR</button><button type="button" data-lang="de" aria-pressed="false" lang="de" aria-label="Deutsch">DE</button></div></nav></div></header>
 <main id="main">${content}</main><footer class="footer"><div class="wrap"><div><p class="footer-brand">Neural Continuity Labs</p><p class="footer-context" data-i18n="footer.context">Research in neural methods for physical systems.</p><p class="footer-context" data-i18n="footer.place">Paris-Saclay, France · Inria Startup Studio ecosystem</p></div><div class="footer-partners"><p class="section-label">IN MATURATION WITH</p><div class="partner-logos"><a href="https://www.inria.fr/" aria-label="Inria"><img src="/assets/partners/inria.svg" alt="Inria" width="283" height="83"></a><a href="https://www.universite-paris-saclay.fr/" aria-label="Université Paris-Saclay"><img src="/assets/partners/paris-saclay.svg" alt="Université Paris-Saclay" width="190" height="67"></a></div></div><div class="footer-right"><a class="footer-email" href="mailto:contact@neuralcontinuitylabs.com">contact@neuralcontinuitylabs.com</a><div class="footer-links"><span>© ${new Date().getUTCFullYear()} NCL</span><a href="/legal.html" data-i18n="footer.legal">Legal notice</a><a href="/legal.html#privacy" data-i18n="footer.privacy">Privacy</a></div></div></div></footer></body></html>\n`;
 }
@@ -164,7 +180,7 @@ for (const [page, template, url, title, description] of pages) {
   await write(url, layout({ page, title, description, url, content }));
 }
 for (const note of notes) {
-  const content = `<div class="wrap"><article class="article" lang="en"><a class="back" href="/notes/">← <span data-i18n="notes.title">Notes from the Lab</span></a><header class="article-head"><p class="metadata"><time datetime="${note.date}">${date(note.date)}</time></p><h1>${escape(note.title)}</h1><p class="dek">${escape(note.description)}</p><p class="english-notice" data-i18n="notes.english">This note is available in English.</p></header><div class="prose">${note.html}</div><nav class="article-end" aria-label="Note navigation"><a href="/notes/" data-i18n="notes.all">All notes</a><a href="/research.html" data-i18n="nav.research">Research</a></nav></article></div>`;
+  const content = `<div class="wrap"><article class="article" lang="en" data-note="${note.slug}"><a class="back" href="/notes/">← <span data-i18n="notes.title">Notes from the Lab</span></a><header class="article-head"><p class="metadata"><time datetime="${note.date}">${date(note.date)}</time></p><h1 data-i18n="note.${note.slug}.title">${escape(note.title)}</h1><p class="dek" data-i18n="note.${note.slug}.description">${escape(note.description)}</p><p class="english-notice" hidden data-i18n="notes.english">This note is available in English.</p></header><div class="prose">${note.html}</div><script type="application/json" id="note-content">${JSON.stringify(note.translations).replace(/</g, "\\u003c")}</script><nav class="article-end" aria-label="Note navigation"><a href="/notes/" data-i18n="notes.all">All notes</a><a href="/research.html" data-i18n="nav.research">Research</a></nav></article></div>`;
   await write(
     `/notes/${note.slug}/`,
     layout({

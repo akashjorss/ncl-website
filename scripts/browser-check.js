@@ -74,19 +74,42 @@ const note = await page(
   "/notes/can-a-machine-rediscover-keplers-laws/?lang=de",
 );
 check(
-  "English article preserved",
-  note.contentDocument.querySelector("article").lang === "en" &&
+  "German article rendered",
+  note.contentDocument.querySelector("article").lang === "de" &&
     note.contentDocument
       .querySelector(".prose")
       .textContent.includes("KeplerBench"),
 );
 check(
-  "Translation fallback notice",
-  note.contentDocument
-    .querySelector(".english-notice")
-    .textContent.includes("Englisch"),
+  "Translated article needs no English fallback",
+  note.contentDocument.querySelector(".english-notice").hidden
 );
 note.remove();
+for (const lang of ["en", "fr", "de"]) {
+  for (const slug of ["can-a-machine-rediscover-keplers-laws", "physics-as-neural-turing-computation", "neural-continuity", "why-ncl-exists"]) {
+    for (const width of [1440, 390, 320]) {
+      const translated = await page(`/notes/${slug}/?lang=${lang}`, width);
+      const d = translated.contentDocument;
+      const payload = JSON.parse(d.querySelector("#note-content").textContent)[lang];
+      check(`Note content ${lang} ${slug} ${width}`,
+        d.querySelector("article").lang === lang &&
+        d.querySelector("h1").textContent === payload.title &&
+        d.querySelector(".dek").textContent === payload.description &&
+        d.querySelector(".english-notice").hidden &&
+        d.querySelector('meta[name="description"]').content === payload.description);
+      check(`Translated layout ${lang} ${slug} ${width}`, d.documentElement.scrollWidth <= width);
+      if (slug === "neural-continuity") check(`Translated math ${lang} ${width}`, !!d.querySelector(".katex-mathml math"));
+      translated.remove();
+    }
+  }
+}
+const switcher = await page("/notes/neural-continuity/?lang=en");
+for (const lang of ["fr", "de", "en"]) {
+  const d = switcher.contentDocument;
+  d.querySelector(`[data-lang=${lang}]`).click();
+  check(`Article switches in place ${lang}`, d.querySelector("article").lang === lang && d.querySelector(".prose").textContent.includes(lang === "fr" ? "précision finie" : lang === "de" ? "endlicher Genauigkeit" : "finite precision"));
+}
+switcher.remove();
 const frame = await page("/contact.html?lang=en"),
   w = frame.contentWindow,
   d = frame.contentDocument,

@@ -1,6 +1,6 @@
 # Neural Continuity Labs
 
-Mineral editorial website for https://neuralcontinuitylabs.com. GitHub Pages serves the committed files at the repository root from `main`. `CNAME` and `.nojekyll` are unchanged. The redesign is on `redesign/editorial-field`, based on `main`; `nov-polish` remains separate and unchanged. Pushing the redesign branch does not publish it.
+Mineral editorial website for https://neuralcontinuitylabs.com. GitHub Pages serves the committed files at the repository root from `main`. `CNAME` and `.nojekyll` are unchanged. The approved redesign is published from `main`. Keep changes on a separate branch until reviewed; `nov-polish` remains separate and unchanged.
 
 ## Local preview
 
@@ -12,19 +12,19 @@ npm run check
 npm run preview
 ```
 
-Open http://127.0.0.1:8140/. The server binds only to this machine. All generated HTML is committed, so GitHub Pages needs no Node build workflow or server-side runtime. After approval, publish by merging the completed branch into `main` through the usual Git workflow.
+Open http://127.0.0.1:8140/. The server binds only to this machine. All generated HTML is committed, so GitHub Pages needs no Node build workflow or server-side runtime. Publish approved updates by merging the completed branch into `main` through the usual Git workflow.
 
 ## Structure
 
 The selected Mineral design uses pale sage `#EDF2ED`, forest ink `#193C34`, and green accents `#286A52`. Its compact homepage introduces one featured note beneath a panoramic field. Shared styles carry the palette through research, contact, legal, and article pages.
 
 - `templates/`: page bodies. `scripts/build.mjs`: shared shell, Markdown rendering, notes index, sitemap, and static HTML generation.
-- `content/notes/`: original English Markdown notes with simple frontmatter.
+- `content/notes/`: English Markdown notes with simple frontmatter; French and German counterparts live under `fr/` and `de/` using the same filenames.
 - `styles.css`: typography and responsive layout. Newsreader and DM Sans are self-hosted under `assets/fonts/` with their SIL Open Font Licenses.
 - `field-flow.js`: GPU transport of a continuous material coordinate, density and heat through a prescribed incompressible flow. Two 768 by 384 textures retain the evolving state, using float, half-float or byte storage according to GPU support. This is illustrative advection, not a full fluid solver.
 - `field.js`: four visual interpretations of the transported state, fixed sensors, resize, 30 fps limit, visibility handling, context restoration and cleanup. `field-mix.js`: transition timing. Each phase holds for 10 seconds and blends for 25 seconds; the mixture cycles over 140 seconds while the spatial state continues evolving.
 - `assets/field-still.webp`: still captured from the GPU field, used as fallback for no JavaScript or unavailable WebGL. Reduced-motion and `?static` render one still WebGL frame, with the WebP available if GPU rendering fails.
-- `i18n.js`, `site.js`: EN/FR/DE interface copy, language persistence and contact form. Scientific notes remain English with a translated fallback notice. Markdown and KaTeX are build-time dependencies only. Equation CSS is loaded only by notes containing math.
+- `i18n.js`, `site.js`: EN/FR/DE interface copy, language persistence and contact form. All four current notes are available in English, French and German. Translations are edited as separate Markdown files; a note without a translation retains an explicit English fallback. Markdown and KaTeX are build-time dependencies only. Equation CSS is loaded only by notes containing math.
 - `research.html`, `contact.html`, `legal.html`, `notes/`: generated supporting pages. Preserve generated files in commits.
 - `motion.js` and root `og.png` are retained legacy assets, unused by the redesign. New social metadata uses `assets/og.png`.
 
@@ -58,13 +58,19 @@ $$
 </figure>
 ```
 
-Use fenced blocks for code. Standard Markdown supports headings, lists, tables, images, and links. `$...$` and `$$...$$` render through KaTeX to HTML and accessible MathML at build time. HTML figures are allowed because content is authored locally and trusted; never compile unreviewed third-party HTML. Add figures to `assets/`, then run `npm run build` and `npm run check`. The notes index, article, and sitemap update automatically. The homepage features the KeplerBench note; change the featured slug in `scripts/build.mjs` to select another note. Commit the source and generated files together. The note lists omit dates; individual articles retain their publication date. Keep dates factual; translations of scientific articles are not generated.
+Use fenced blocks for code. Standard Markdown supports headings, lists, tables, images, and links. `$...$` and `$$...$$` render through KaTeX to HTML and accessible MathML at build time. HTML figures are allowed because content is authored locally and trusted; never compile unreviewed third-party HTML. Add figures to `assets/`, then run `npm run build` and `npm run check`. The notes index, article, and sitemap update automatically. The homepage features the KeplerBench note; change the featured slug in `scripts/build.mjs` to select another note. Commit the source and generated files together. The note lists omit dates; individual articles retain their publication date. Keep dates factual; add translations deliberately rather than generating them from the English text automatically.
+
+## Translate a note
+
+Create `content/notes/fr/your-note.md` or `content/notes/de/your-note.md` with the same filename, slug and publication date as the English source. Translate the title, description and body. Preserve equations, quantitative results, source links and qualifications. Run `npm run build` and `npm run check`; commit translated Markdown, generated HTML and `notes-i18n.js` together. The interface switcher updates the article, its metadata and the note lists without fetching another page. The generated JSON contains only trusted, locally authored Markdown output. Missing translations fall back to English with a localized notice.
+
+The typography experiments are at http://127.0.0.1:8140/qa/type-study.html. The middle Editorial scale is applied to the site; the other scales are review options only.
 
 ## Verification
 
 `npm run check` validates generated pages, local resources and anchors, EN/FR/DE keys, Markdown/math support, continuous mix weights, and domain files. JavaScript syntax checks can use `node --check`.
 
-For local browser checks, open the preview and run `await import('/scripts/browser-check.js?run=1')` in DevTools. It tests layouts at 1440, 1280, 390 and 320 pixels, localization, English note fallback, GPU initialization, and mocked contact success/failure paths. It never sends a message. Results are in `window.nclQA`. Run `await import('/scripts/field-check.js?run=1')` for reduced-motion, fallback, frame-cap, offscreen and context-recovery checks. The review record is in `qa/VERIFICATION.md`. Five composition studies awaiting selection are available at http://127.0.0.1:8140/qa/design-directions.html. These are static previews, separate from the homepage.
+For local browser checks, open the preview and run `await import('/scripts/browser-check.js?run=1')` in DevTools. It tests layouts at 1440, 1280, 390 and 320 pixels, localization, localized notes and language switching, GPU initialization, and mocked contact success/failure paths. It never sends a message. Results are in `window.nclQA`. Run `await import('/scripts/field-check.js?run=1')` for reduced-motion, fallback, frame-cap, offscreen and context-recovery checks. The review record is in `qa/VERIFICATION.md`. Five composition studies awaiting selection are available at http://127.0.0.1:8140/qa/design-directions.html. These are static previews, separate from the homepage.
 
 The contact endpoint is the existing `https://formsubmit.co/ajax/contact@neuralcontinuitylabs.com`. An end-to-end email delivery check requires a real submission; automated QA mocks the endpoint. The field is an artistic procedural illustration, not measured data or a trained reconstruction output.
 

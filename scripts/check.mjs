@@ -23,6 +23,7 @@ vm.runInNewContext(
   await fs.readFile(path.join(root, "i18n.js"), "utf8"),
   context,
 );
+vm.runInNewContext(await fs.readFile(path.join(root, "notes-i18n.js"), "utf8"), context);
 const dictionaries = context.window.I18N;
 let links = 0,
   keys = 0;

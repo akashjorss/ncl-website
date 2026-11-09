@@ -31,9 +31,19 @@
     return "en";
   }
 
+  var noteNode = document.getElementById("note-content");
+  var noteContent = noteNode ? JSON.parse(noteNode.textContent) : null;
+
   function apply(lang) {
     current = lang;
     document.documentElement.lang = lang;
+    var article = document.querySelector("article[data-note]");
+    var articleText = noteContent && (noteContent[lang] || noteContent.en);
+    if (article && articleText) {
+      article.lang = noteContent[lang] ? lang : "en";
+      article.querySelector(".prose").innerHTML = articleText.html;
+      article.querySelector(".english-notice").hidden = !!noteContent[lang] || lang === "en";
+    }
 
     var nodes = document.querySelectorAll("[data-i18n]");
     for (var i = 0; i < nodes.length; i++) {
@@ -59,7 +69,12 @@
     }
 
     var page = document.body.getAttribute("data-page") || "index";
-    document.title = t("meta.title." + page) || document.title;
+    document.title = articleText ? articleText.title + " | " + t("notes.title") : t("meta.title." + page) || document.title;
+    if (articleText) {
+      document.querySelector('meta[name="description"]').content = articleText.description;
+      document.querySelector('meta[property="og:title"]').content = articleText.title;
+      document.querySelector('meta[property="og:description"]').content = articleText.description;
+    }
     var desc = document.querySelector('meta[name="description"]');
     if (desc && page === "index")
       desc.setAttribute("content", t("meta.description"));
