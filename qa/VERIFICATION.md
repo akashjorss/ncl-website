@@ -74,3 +74,7 @@ Reviewed the actual homepage in desktop and mobile Chrome emulation. Current scr
 ## Readability update
 
 Raised the introduction and note summaries to 16px, navigation and primary links to 14px, footer copy to 13px, legal links to 12px, and small section labels to 11 or 12px. Article prose and heading sizes are unchanged. Laptop spacing stacks the hero contact link below its paragraph, and mobile navigation keeps 44px link height. All 94 browser checks passed at 1440, 1280, 390 and 320 CSS pixels; the larger desktop text and mobile homepage/footer were also visually reviewed in Chrome.
+
+## Larger type scale after screenshot review
+
+Increased desktop navigation and primary links to 16px, hero and note summaries to 18px, the homepage headline to 60px, and footer text to 14 to 16px. Mobile navigation scales between 14px and 16px to fit narrow screens. Added a content hash to the shared stylesheet URL, so changed CSS gets a new browser cache key. All 94 browser checks pass; desktop and 390px mobile layouts were visually reviewed.
