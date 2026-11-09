@@ -8,11 +8,11 @@ The branch `redesign/editorial-field` starts from `main`. Neither `main` nor `no
 
 ## Checks
 
-- Static checks pass for ten pages, 141 local resources/anchors, and 142 translated interface instances in EN, FR and DE.
+- Static checks pass for ten pages, 159 local resources/anchors, and 141 translated interface instances in EN, FR and DE.
 - Markdown checks cover headings, lists, code, links, figures, tables and KaTeX/MathML equations.
-- Mix weights remain bounded, sum to one and vary continuously across the 140-second cycle. The procedural clock is independent of the mixture cycle.
+- Mix weights remain bounded, sum to one and vary continuously across the 140-second cycle. The procedural clock is independent of the mixture cycle. A persistent GPU transport pass supplies all four field views.
 - All 94 browser checks pass: layouts at 1440, 1280, 390 and 320 CSS pixels, headings, language selection and navigation, English article fallback, accessible equations at all four widths, WebGL initialization, and contact validation, success, provider rejection and network failure.
-- All seven field lifecycle checks pass: static reduced-motion rendering, unavailable-WebGL fallback, capped drawing, context loss and restoration, offscreen pause, and script-error capture. The local render sample measured approximately 26 fps at a 960 by 711 drawing buffer. This is a local sample, not a performance guarantee for every device.
+- All seven field lifecycle checks pass: static reduced-motion rendering, unavailable-WebGL fallback, capped drawing, context loss and restoration, offscreen pause, and script-error capture. The local render sample measured 25.5 fps at a 960 by 711 drawing buffer. This is a local sample, not a performance guarantee for every device.
 - JavaScript syntax checks and `git diff --check` pass. `npm audit` reports zero vulnerabilities for the locked build dependencies.
 - An extension-free Chrome session showed no site script errors. A JSON parse error seen in the normal profile was absent there; production code is not changed to accommodate third-party browser extensions.
 
@@ -22,8 +22,8 @@ Reviewed the wide desktop homepage, a standard laptop layout, and the mobile hom
 
 Screenshots retained locally (ignored by Git):
 
-- `qa/desktop.png`: full homepage at 1440 CSS pixels, captured at device pixel ratio 2.
-- `qa/mobile.png`: full homepage at 390 CSS pixels, captured at device pixel ratio 2.
+- `qa/desktop-refined.png`: full homepage before the final hero copy and date-list cleanup at 1440 CSS pixels, captured at device pixel ratio 2.
+- `qa/mobile-refined.png`: full homepage before the final hero copy and date-list cleanup at 390 CSS pixels, captured at device pixel ratio 2.
 
 ## Deliberate limits
 
@@ -51,4 +51,8 @@ The first script never sends a real contact request. The second uses temporary i
 
 ## Research-note revision
 
-The notebook now contains four succinct notes (approximately 160 words each): KeplerBench, NFTM, neural continuity and why NCL exists. The KeplerBench note explicitly names acceptance at the NeurIPS 2026 Sim2Science workshop. NFTM bibliographic details and the neural-continuity definition were checked against the official ML4PS 2025 accepted-paper listing and workshop PDF, Section 3 and Appendix B. NFTM is also listed on the Research page in EN, FR and DE. The workshop version is used for its updated computational-framework framing and explicit definition of neural continuity.
+The notebook now contains four succinct notes (approximately 150 to 170 words each), titled Can neural nets discover physical laws?, Neural Field Computations, Neural Continuity and Neural Continuity Labs. Visible author bylines are omitted. Technical acronyms are expanded on first use. List dates are omitted; article publication dates remain factual. The KeplerBench note explicitly names acceptance at the NeurIPS 2026 Sim2Science workshop. NFTM bibliographic details and the neural-continuity definition were checked against the official ML4PS 2025 accepted-paper listing and workshop PDF, Section 3 and Appendix B. NFTM is also listed on the Research page in EN, FR and DE. The workshop version is used for its updated computational-framework framing and explicit definition of neural continuity.
+
+## Design comparison
+
+`qa/design-directions.html` contains five separate composition studies for selection. These use a still captured from the WebGL field. Their overall layouts have not been applied to the homepage. The current homepage has the requested shorter hero copy in EN, FR and DE, and its redundant lab-name eyebrow is removed. The official Inria and Paris-Saclay SVG logos appear in the shared footer under IN MATURATION WITH. The five studies and final homepage copy were visually inspected in Chrome. Static checks were rerun after the copy and date-list changes; the 94 browser and seven graphics checks passed before those final text/layout edits.

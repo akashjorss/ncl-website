@@ -1,19 +1,18 @@
 ---
-title: Physics as Neural Turing Computation
+title: Neural Field Computations
 date: 2026-11-09
-description: NFTM treats a spatial field as memory and local updates as computation.
-author: Akash Malhotra
+description: Learning how a physical field changes through local updates.
 slug: physics-as-neural-turing-computation
 ---
 
-A physical field can be more than the output of a neural network. It can hold the state on which computation operates.
+A neural field stores a system’s state as values across space. Computation can then proceed by reading a small region, applying a learned rule, and writing the result back.
 
-Our **Neural Field Turing Machine (NFTM)** paper, with Nacéra Seghouani at **NeurIPS 2025 ML4PS**, develops this view. A stateless neural controller reads a local region, writes an update, and moves its read/write heads. State lives in the spatial field; repeated local operations produce its evolution.
+The Neural Field Turing Machine (NFTM) gives this process a computational model. Its controller reads and updates local regions through movable heads. The controller has no internal memory; the spatial field holds the state.
 
-NFTM is a computational framework rather than a prescribed architecture. The paper instantiates it with standard components for Rule 110, the heat equation, and image inpainting. These experiments use discrete grids as practical approximations to the continuous-field formulation.
+Local updates connect this model to physical evolution. In the heat-equation experiment, a supplied diffusion operator and learned coefficients determine how temperature changes. Each predicted field becomes the input to the next step. Other demonstrations apply the same idea to cellular automata and image completion.
 
-For physics, the question is whether a learned local update can remain useful through repeated composition. The heat-equation experiment supplies the Laplacian structure and learns diffusion coefficients; it does not discover an unknown physical law.
+Repeated updates make error accumulation a central concern. A useful rule must remain reliable as its own predictions become its inputs. Testing that reliability across new geometries and operating conditions is part of the work ahead.
 
-How far can this approach extend when the geometry, resolution, or dynamics change?
+Presented at Machine Learning and the Physical Sciences (ML4PS), a workshop at the 2025 Conference on Neural Information Processing Systems (NeurIPS).
 
-[Workshop paper](https://ml4physicalsciences.github.io/2025/files/NeurIPS_ML4PS_2025_40.pdf) · [Code](https://github.com/akashjorss/NFTM) · [Neural continuity](/notes/neural-continuity/)
+[Paper](https://ml4physicalsciences.github.io/2025/files/NeurIPS_ML4PS_2025_40.pdf) · [Code](https://github.com/akashjorss/NFTM) · [Neural Continuity](/notes/neural-continuity/)

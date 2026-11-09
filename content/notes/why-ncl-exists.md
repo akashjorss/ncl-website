@@ -1,17 +1,14 @@
 ---
-title: Why NCL Exists
+title: Neural Continuity Labs
 date: 2026-11-09
 description: Discovering what neural physics looks like, from the bottom up.
-author: Akash Malhotra
 slug: why-ncl-exists
 ---
 
-NCL exists to discover what **neural physics** looks like: which representations and computations let a learned system reconstruct, evolve, and reason about the physical world.
+Neural Continuity Labs (NCL) studies how neural networks can learn the behavior of physical systems. We want to find out what neural physics looks like when models must work from limited measurements and cope with unfamiliar conditions.
 
-We approach this from the bottom up. Start with a concrete system, limited observations, and a question we can test. Examine what the model learns. Change the conditions. Keep the methods that survive, and make the failures informative.
+Limited measurements make industrial systems a useful starting point. Sensors record temperature or flow at a few locations, leaving most of the system unobserved. Reconstructing the field between those sensors gives us a concrete problem to solve.
 
-Industrial observability gives this inquiry contact with real systems. Can sparse temperature or flow measurements reveal a field between sensors? Does the learned structure carry to another geometry or operating regime? Where should the estimate be distrusted?
+A reconstruction also gives us something to test. We can move the sensors, change the geometry, or introduce a new operating regime and measure where the model fails. These tests guide our choice of representation and learning method.
 
-[KeplerBench](/notes/can-a-machine-rediscover-keplers-laws/) tests transfer beyond a good fit. [NFTM](/notes/physics-as-neural-turing-computation/) investigates computation through local field updates. Neither settles which architecture will work best.
-
-The aim is to turn these experiments into models, benchmarks, software, and knowledge others can build upon. What structure must a neural system learn for its physics to remain useful outside the conditions we gave it?
+That is the bottom-up idea behind NCL. We begin with physical problems and let the evidence shape the models. We publish the resulting methods, software, and benchmarks so that others can examine and extend the work.

@@ -1,24 +1,18 @@
 ---
-title: Can a Machine Rediscover Kepler’s Laws?
+title: Can neural nets discover physical laws?
 date: 2026-11-09
-description: Fitting observations is one test. Discovering a law that transfers is another.
-author: Akash Malhotra
+description: Planetary observations offer a first test of discovering laws from limited data.
 slug: can-a-machine-rediscover-keplers-laws
 ---
 
-[KeplerBench](https://github.com/Neural-Continuity-Labs/keplerbench), accepted at the **NeurIPS 2026 Sim2Science workshop**, asks whether a machine can recover transferable physical structure from astronomical observations.
+Human physicists have inferred general laws from sparse, noisy observations. Kepler’s laws are an early example. Measurements of planetary positions, taken from a moving Earth, led to a description that applied beyond the observed trajectories.
 
-A pilot on Tycho Brahe’s Mars declinations exposes the gap between fitting and extrapolation:
+Planetary motion is therefore a useful first test for machine discovery. KeplerBench asks a learner to recover general laws from observer-based measurements without supplying the coordinates or equations that make the problem simple. Current systems have yet to pass this discovery test.
 
-| Model | Training residual | Held-out residual |
-| --- | ---: | ---: |
-| Gaussian-process curve fit | 0.72 arcmin | approximately 1174 arcmin |
-| Physics-supplied Keplerian ellipse | 2.66 arcmin | 13.31 arcmin |
+The pilot shows why fitting is insufficient. A Gaussian-process curve fit reached a median training error of 0.72 arcminutes but about 1174 on held-out observations. An ellipse reached 2.66 and 13.31 respectively, with its physical structure supplied in advance. It did not discover the laws.
 
-These are median absolute residuals. The ellipse was given its physical structure, including the modern orbit of Earth. It did not discover Kepler’s laws.
+Discovering that structure, then transferring it to unfamiliar planetary systems, is the challenge the benchmark sets.
 
-The benchmark separates prediction of held-out observations, transfer of a frozen global law to unseen systems, and repeated application of a local dynamical rule after removing the observation history. Synthetic worlds with modified force laws test beyond the familiar Solar System.
+Accepted at Machine Learning with Imperfect Scientific Models (Sim2Science), a workshop at the 2026 Conference on Neural Information Processing Systems (NeurIPS).
 
-The open question: can a learned representation retain useful physical structure when the system changes?
-
-[Paper](https://openreview.net/forum?id=RdErwlc7jJ) · [Code and pilot results](https://github.com/Neural-Continuity-Labs/keplerbench)
+[Paper](https://openreview.net/forum?id=RdErwlc7jJ) · [Code](https://github.com/Neural-Continuity-Labs/keplerbench)

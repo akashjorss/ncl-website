@@ -12,7 +12,7 @@ async function make(injection = "") {
     .replace('<script src="/site.js" defer></script>', "")
     .replace(
       "<head>",
-      '<head><script>window.qaDraws=0;window.qaErrors=[];window.addEventListener("error",e=>qaErrors.push(e.message));const originalContext=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(...args){const gl=originalContext.apply(this,args);if(gl&&args[0]==="webgl"&&!gl.qaWrapped){gl.qaWrapped=true;const draw=gl.drawArrays.bind(gl);gl.drawArrays=function(...a){window.qaDraws++;return draw(...a)};}return gl;};' +
+      '<head><script>window.qaDraws=0;window.qaErrors=[];window.addEventListener("error",e=>qaErrors.push(e.message));const originalContext=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(...args){const gl=originalContext.apply(this,args);if(gl&&args[0]==="webgl"&&!gl.qaWrapped){gl.qaWrapped=true;const draw=gl.drawArrays.bind(gl);gl.drawArrays=function(...a){if(gl.getParameter(gl.FRAMEBUFFER_BINDING)===null)window.qaDraws++;return draw(...a)};}return gl;};' +
         injection +
         "</script>",
     );
