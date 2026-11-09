@@ -1,0 +1,76 @@
+<div class="wrap">
+  <header class="page-head">
+    <p class="eyebrow" data-i18n="contact.eyebrow">Start a conversation</p>
+    <h1 data-i18n="contact.title">Contact</h1>
+  </header>
+  <div class="contact-grid">
+    <div class="contact-text">
+      <p data-i18n="contact.lead">
+        We welcome conversations with researchers, industrial engineers, and
+        anyone working on an interesting physical modeling problem.
+      </p>
+      <p data-i18n="contact.sub">
+        Tell us what you’re investigating, what you can measure, or what you
+        would like to understand.
+      </p>
+      <a class="contact-email" href="mailto:contact@neuralcontinuitylabs.com"
+        >contact@neuralcontinuitylabs.com</a
+      >
+    </div>
+    <form id="contact-form" novalidate>
+      <label
+        ><span data-i18n="form.name">Name</span
+        ><input
+          name="name"
+          type="text"
+          required
+          autocomplete="name"
+          maxlength="200"
+      /></label>
+      <label
+        ><span data-i18n="form.email">Email</span
+        ><input
+          name="email"
+          type="email"
+          required
+          autocomplete="email"
+          maxlength="254"
+      /></label>
+      <label
+        ><span data-i18n="form.message">Message</span
+        ><textarea
+          name="message"
+          rows="4"
+          required
+          maxlength="10000"
+        ></textarea>
+      </label>
+      <div class="honey" aria-hidden="true">
+        <label
+          >Leave this field empty<input
+            name="_honey"
+            type="text"
+            tabindex="-1"
+            autocomplete="off"
+        /></label>
+      </div>
+      <button class="send" type="submit" data-i18n="form.send">
+        Send message
+      </button>
+      <p class="form-privacy">
+        <span data-i18n="form.privacy"
+          >Your details are used only to reply to you.</span
+        >
+        <a href="/legal.html#privacy" data-i18n="form.privacyLink"
+          >Privacy notice</a
+        >.
+      </p>
+      <p class="status" role="status" aria-live="polite"></p>
+      <noscript
+        ><p class="form-privacy">
+          Please use the email link to contact us. The form requires JavaScript.
+        </p></noscript
+      >
+    </form>
+  </div>
+</div>
