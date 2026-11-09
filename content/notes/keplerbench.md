@@ -1,7 +1,7 @@
 ---
-title: Can neural nets discover physical laws?
+title: Can machines discover the laws of physics?
 date: 2026-11-09
-description: Planetary observations offer a first test of discovering laws from limited data.
+description: How physicists reason from a few observations to general laws.
 slug: can-a-machine-rediscover-keplers-laws
 ---
 
