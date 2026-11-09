@@ -19,4 +19,4 @@ Differentiable updates let us train the behavior of a field over time. Their use
 
 Understanding when learned field dynamics remain accurate is one reason to study neural continuity.
 
-[Paper](https://ml4physicalsciences.github.io/2025/files/NeurIPS_ML4PS_2025_40.pdf) · [Neural Field Computations](/notes/physics-as-neural-turing-computation/)
+[Code](https://github.com/akashjorss/NFTM) · [Neural Field Computations](/notes/physics-as-neural-turing-computation/)

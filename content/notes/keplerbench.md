@@ -15,4 +15,4 @@ Discovering that structure, then transferring it to unfamiliar planetary systems
 
 Accepted at Machine Learning with Imperfect Scientific Models (Sim2Science), a workshop at the 2026 Conference on Neural Information Processing Systems (NeurIPS).
 
-[Paper](https://openreview.net/forum?id=RdErwlc7jJ) · [Code](https://github.com/Neural-Continuity-Labs/keplerbench)
+[Code](https://github.com/Neural-Continuity-Labs/keplerbench)

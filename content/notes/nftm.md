@@ -15,4 +15,4 @@ Repeated updates make error accumulation a central concern. A useful rule must r
 
 Presented at Machine Learning and the Physical Sciences (ML4PS), a workshop at the 2025 Conference on Neural Information Processing Systems (NeurIPS).
 
-[Paper](https://ml4physicalsciences.github.io/2025/files/NeurIPS_ML4PS_2025_40.pdf) · [Code](https://github.com/akashjorss/NFTM) · [Neural Continuity](/notes/neural-continuity/)
+[Code](https://github.com/akashjorss/NFTM) · [Neural Continuity](/notes/neural-continuity/)
