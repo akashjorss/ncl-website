@@ -5,18 +5,20 @@ description: Kontinuierliche Beschreibungen der Welt mit endlichen Rechenmitteln
 slug: neural-continuity
 ---
 
-Ein neuronales Netz kann ein Feld darstellen, dessen Wert sich an jeder beliebigen Koordinate im Definitionsbereich auswerten lässt. Eine endliche Zahl von Parametern liefert damit eine kontinuierliche Beschreibung, obwohl der Rechner mit endlicher Genauigkeit arbeitet.
+Ein Temperaturfeld ordnet jedem Punkt in einem Raumbereich einen Wert zu. Ein Rechner braucht eine endliche Beschreibung, um diese Werte darzustellen.
 
-Neuronale Kontinuität verbindet diese Darstellung mit einer differenzierbaren Dynamik. Das Feld entwickelt sich nach einer Aktualisierungsregel, deren Gradienten es erlauben, die Parameter aus Beobachtungen zu lernen. Formal gilt
+Ein neuronales Netz kann eine solche Beschreibung liefern. Es nimmt eine Koordinate entgegen und gibt einen Feldwert aus. Dafür verwendet es eine endliche Zahl von Parametern. So lässt sich das Feld auch zwischen den Trainingspunkten auswerten.
+
+Neuronale Kontinuität verbindet diese räumliche Darstellung mit einer differenzierbaren Regel für die zeitliche Entwicklung des Feldes,
 
 $$
-f_{t+1}=\Phi_{\theta}(f_t),
+f_{t+1}=\Phi_{\theta}(f_t).
 $$
 
-wobei $f_t$ das Feld im aktuellen Schritt bezeichnet und $\theta$ die gelernten Parameter enthält. Endliche Parametrisierung, kontinuierliche räumliche Auswertung und differenzierbare Aktualisierungen bestimmen den vorgeschlagenen Rahmen.
+Dabei bezeichnet $f_t$ das aktuelle Feld und $\theta$ die gelernten Parameter. Das Feld ist räumlich kontinuierlich, während die Regel es in diskreten Schritten weiterentwickelt. Der Rechner wertet beides mit endlicher Genauigkeit aus.
 
-Mit solchen Aktualisierungen lässt sich die zeitliche Entwicklung eines Feldes lernen. Entscheidend ist jedoch, was bei wiederholter Anwendung geschieht. Kleine numerische Fehler können sich aufsummieren. Auch eine glatte Darstellung kann die Physik falsch vorhersagen.
+Da die Regel differenzierbar ist, können wir ihre Parameter aus Beobachtungen lernen. Damit lernen wir neben der Darstellung auch, wie sich das Feld verändert.
 
-Zu verstehen, unter welchen Bedingungen gelernte Felddynamiken das physikalische System weiterhin richtig beschreiben, ist ein Grund, neuronale Kontinuität zu untersuchen.
+Dass sich ein Feld überall auswerten lässt, bedeutet noch nicht, dass es überall stimmt. Seine Vorhersagen müssen wir auch abseits der Messpunkte prüfen.
 
 [Code](https://github.com/akashjorss/NFTM) · [Rechnen mit neuronalen Feldern](/notes/physics-as-neural-turing-computation/)

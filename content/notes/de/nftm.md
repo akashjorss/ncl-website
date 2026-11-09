@@ -5,14 +5,14 @@ description: Die Entwicklung physikalischer Felder durch lokale Aktualisierungen
 slug: physics-as-neural-turing-computation
 ---
 
-Ein neuronales Feld beschreibt den Zustand eines Systems durch räumlich verteilte Werte. Rechnen lässt sich dann als lokaler Vorgang auffassen. Ein kleiner Bereich wird gelesen, nach einer gelernten Regel verändert und in das Feld zurückgeschrieben.
+In der Neural Field Turing Machine (NFTM) gibt eine Steuereinheit die Rechenregel vor, während ein räumliches Feld den Zustand speichert. Die Steuereinheit besitzt keinen eigenen Speicher. Über bewegliche Köpfe liest sie einen lokalen Bereich, berechnet eine Aktualisierung und schreibt das Ergebnis zurück.
 
-Die Neural Field Turing Machine (NFTM) beschreibt dieses Vorgehen als Rechenmodell. Ihre Steuereinheit liest und verändert lokale Bereiche über bewegliche Köpfe. Sie besitzt keinen eigenen Speicher. Der Zustand liegt im räumlichen Feld.
+Das Feld kann Temperaturen, den Zustand eines zellulären Automaten oder ein Bild enthalten. Wiederholte Aktualisierungen verändern diesen Zustand mit der Zeit. Bei einem physikalischen System sollen die gelernten Aktualisierungen dessen Entwicklung wiedergeben.
 
-Lokale Aktualisierungen stellen die Verbindung zur physikalischen Entwicklung her. Im Versuch zur Wärmeleitungsgleichung bestimmen ein vorgegebener Diffusionsoperator und gelernte Koeffizienten, wie sich die Temperatur verändert. Jedes vorhergesagte Feld dient als Eingabe für den nächsten Zeitschritt. Weitere Beispiele übertragen das Prinzip auf zelluläre Automaten und die Vervollständigung von Bildern.
+Im Versuch zur Wärmeleitungsgleichung haben wir einen Diffusionsoperator vorgegeben und seine Koeffizienten gelernt. Jedes vorhergesagte Temperaturfeld diente als Eingabe für den nächsten Schritt. Weitere Versuche prüften dasselbe Lese- und Schreibprinzip an zellulären Automaten und bei der Vervollständigung von Bildern.
 
-Bei wiederholten Aktualisierungen wird die Fehlerfortpflanzung entscheidend. Eine brauchbare Regel muss auch dann zuverlässig bleiben, wenn sie ihre eigenen Vorhersagen als Eingabe erhält. Diese Zuverlässigkeit für neue Geometrien und Betriebsbedingungen zu prüfen, gehört zu den nächsten Aufgaben.
+Der Wärmeleitungsversuch beginnt mit einer bekannten Gleichung. Ein schwierigerer Test würde bei den Messungen ansetzen und die Steuereinheit lernen lassen, wie sich das Feld verändern soll.
 
-Vorgestellt bei Machine Learning and the Physical Sciences (ML4PS), einem Workshop der Conference on Neural Information Processing Systems (NeurIPS) 2025.
+Vorgestellt im Workshop Machine Learning and the Physical Sciences (ML4PS) auf der Conference on Neural Information Processing Systems (NeurIPS) 2025.
 
 [Code](https://github.com/akashjorss/NFTM) · [Neuronale Kontinuität](/notes/neural-continuity/)

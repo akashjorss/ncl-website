@@ -5,10 +5,10 @@ description: Von konkreten Problemen ausgehend untersuchen, wie neuronale Physik
 slug: why-ncl-exists
 ---
 
-Neural Continuity Labs (NCL) untersucht, wie neuronale Netze das Verhalten physikalischer Systeme lernen können. Uns interessiert, wie neuronale Physik aussieht, wenn nur wenige Messungen vorliegen und Modelle mit ungewohnten Bedingungen umgehen müssen.
+Ein Modell kann seine Trainingsmessungen wiedergeben und trotzdem scheitern, sobald sich das physikalische System ändert. Neural Continuity Labs (NCL) untersucht, was neuronale Netze lernen müssen, um auch unter veränderten Bedingungen brauchbar zu bleiben.
 
-Industrielle Anlagen bieten dafür einen konkreten Ausgangspunkt. Sensoren erfassen Temperaturen oder Strömungsgrößen an wenigen Stellen. Der größte Teil des physikalischen Zustands bleibt unbeobachtet. Das Feld zwischen den Sensoren zu rekonstruieren, gibt uns eine klar umrissene Aufgabe.
+Industrielle Anlagen bieten uns einen konkreten Ausgangspunkt. Einige Sensoren messen Temperaturen oder Strömungsgrößen, während der größte Teil des physikalischen Zustands unbeobachtet bleibt. Wir untersuchen, wie sich die Felder zwischen den Sensoren rekonstruieren lassen.
 
-Eine solche Rekonstruktion lässt sich gezielt prüfen. Wir können Sensoren versetzen, die Geometrie ändern oder einen neuen Betriebszustand vorgeben und messen, wo das Modell versagt. Diese Versuche bestimmen mit, welche Darstellungen und Lernverfahren wir wählen.
+Eine Rekonstruktion können wir prüfen, indem wir Sensoren versetzen, die Geometrie ändern oder einen anderen Betriebszustand vorgeben. Diese Versuche helfen uns zu beurteilen, welche Darstellungen und Lernregeln sich auf neue Bedingungen übertragen lassen.
 
-So geht NCL von konkreten Problemen zu allgemeineren Ansätzen über. Wir beginnen bei der Physik und richten die Modelle an den Versuchsergebnissen aus. Die daraus entstehenden Methoden, Software und Benchmarks veröffentlichen wir, damit andere die Ergebnisse prüfen und darauf aufbauen können.
+So entwickeln wir unsere Ansätze aus konkreten Problemen heraus. Die physikalischen Probleme bestimmen die Experimente, und die Experimente bestimmen die Wahl der Modelle. Nützliche Ergebnisse sollen zu Methoden, Software und Benchmarks werden, die andere prüfen und weiterentwickeln können.

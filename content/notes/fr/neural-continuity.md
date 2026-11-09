@@ -5,18 +5,20 @@ description: Représenter et apprendre une description continue du monde avec de
 slug: neural-continuity
 ---
 
-Un réseau de neurones peut représenter un champ dont on évalue la valeur en tout point du domaine. Un nombre fini de paramètres fournit ainsi une description continue, même si l’ordinateur effectue les calculs avec une précision finie.
+Un champ de température associe une valeur à chaque point d’une région de l’espace. Pour représenter ces valeurs, un ordinateur doit disposer d’une description finie.
 
-La continuité neuronale associe cette représentation à une dynamique différentiable. Le champ évolue selon une règle de mise à jour dont les gradients permettent d’apprendre les paramètres à partir d’observations. On écrit
+Un réseau de neurones peut fournir cette description. À partir de coordonnées, il renvoie la valeur du champ en utilisant un nombre fini de paramètres. On peut alors évaluer le champ entre les points utilisés pour l’entraînement.
+
+La continuité neuronale associe cette représentation spatiale à une règle différentiable qui fait évoluer le champ au cours du temps,
 
 $$
-f_{t+1}=\Phi_{\theta}(f_t),
+f_{t+1}=\Phi_{\theta}(f_t).
 $$
 
-où $f_t$ désigne le champ au pas courant et $\theta$ les paramètres appris. Une paramétrisation finie, une évaluation continue dans l’espace et des mises à jour différentiables définissent le cadre proposé.
+Ici, $f_t$ désigne le champ courant et $\theta$ contient les paramètres appris. Le champ est continu dans l’espace, tandis que la règle le fait avancer par pas discrets. L’ordinateur évalue l’un et l’autre avec une précision finie.
 
-Ces mises à jour permettent d’apprendre l’évolution du champ au cours du temps. Leur intérêt dépend toutefois de leur comportement lorsqu’on les répète. De petites erreurs numériques peuvent s’accumuler, et une représentation lisse peut malgré tout prédire une physique erronée.
+La règle étant différentiable, nous pouvons apprendre ses paramètres à partir d’observations. Nous apprenons ainsi l’évolution du champ en même temps que sa représentation.
 
-Déterminer dans quelles conditions une dynamique de champ apprise reste fidèle au système physique est l’une des raisons d’étudier la continuité neuronale.
+Pouvoir évaluer un champ en tout point ne garantit pas qu’il soit juste partout. Il reste à vérifier ses prédictions loin des points de mesure.
 
 [Code](https://github.com/akashjorss/NFTM) · [Calcul sur des champs neuronaux](/notes/physics-as-neural-turing-computation/)

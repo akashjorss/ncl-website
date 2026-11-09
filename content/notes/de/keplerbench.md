@@ -5,14 +5,14 @@ description: Physiker stellen aus erstaunlich wenigen Beobachtungen allgemeine G
 slug: can-a-machine-rediscover-keplers-laws
 ---
 
-Aus wenigen, verrauschten Beobachtungen können Physiker allgemeine Gesetze entwickeln. Ein frühes Beispiel sind die Keplerschen Gesetze. Messungen der Planetenpositionen, aufgenommen von der selbst bewegten Erde aus, führten zu einer Beschreibung, die über die beobachteten Bahnen hinausging.
+Kepler entwickelte aus Beobachtungen der Planetenbewegung Gesetze, die über die gemessenen Bahnen hinaus galten. KeplerBench fragt, ob eine Maschine denselben Schritt machen kann, ohne die Gleichungen vorab zu erhalten.
 
-Die Planetenbewegung eignet sich deshalb als erster Prüfstein für die maschinelle Entdeckung physikalischer Gesetze. KeplerBench verlangt von einem lernenden System, aus beobachterabhängigen Messungen allgemeine Gesetze zu gewinnen. Die Koordinaten und Gleichungen, die das Problem vereinfachen, werden dabei nicht vorgegeben. Bisherige Systeme haben diese Aufgabe noch nicht gelöst.
+Der Benchmark nutzt historische astronomische Beobachtungen und synthetische Planetensysteme mit veränderten physikalischen Gesetzen. Er prüft getrennt, ob ein Modell neue Beobachtungen vorhersagen, auf andere Systeme übertragbare Gesetze finden oder wiederverwendbare lokale Regeln lernen kann.
 
-Der Vorversuch zeigt, warum eine gute Datenanpassung allein nicht genügt. Ein Gaußprozessmodell erreicht bei den Trainingsdaten einen medianen Fehler von 0,72 Bogenminuten, bei den zurückgehaltenen Testbeobachtungen jedoch rund 1174. Ein elliptisches Bahnmodell erreicht dagegen 2,66 beziehungsweise 13,31 Bogenminuten. Seine physikalische Struktur war allerdings vorgegeben. Es hat die Gesetze nicht selbst entdeckt.
+Ein Vorversuch mit historischen Marsbeobachtungen zeigt, warum eine gute Datenanpassung nur ein erster Schritt ist. Ein Gaußprozessmodell erreichte bei den Trainingsdaten einen medianen Fehler von 0,72 Bogenminuten, bei den zurückgehaltenen Testbeobachtungen jedoch rund 1174. Ein Modell mit einer Keplerschen Ellipse erreichte dagegen 2,66 beziehungsweise 13,31 Bogenminuten.
 
-Diese Struktur zu finden und auf unbekannte Planetensysteme zu übertragen, ist die Herausforderung, die der Benchmark stellt.
+Die physikalische Struktur des Ellipsenmodells war vorgegeben. Das Ergebnis zeigt ihren Nutzen, lässt aber offen, wie eine Maschine sie selbst finden könnte. Der schwierigere Test besteht darin, ein Gesetz zu entdecken und auf ein Planetensystem anzuwenden, das dem Modell noch unbekannt ist.
 
-Angenommen bei Machine Learning with Imperfect Scientific Models (Sim2Science), einem Workshop der Conference on Neural Information Processing Systems (NeurIPS) 2026.
+Angenommen für den Workshop Machine Learning with Imperfect Scientific Models (Sim2Science) auf der Conference on Neural Information Processing Systems (NeurIPS) 2026.
 
 [Code](https://github.com/Neural-Continuity-Labs/keplerbench)

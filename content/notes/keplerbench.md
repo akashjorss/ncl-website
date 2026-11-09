@@ -5,13 +5,13 @@ description: Physicists propose general laws from remarkably few observations. C
 slug: can-a-machine-rediscover-keplers-laws
 ---
 
-Human physicists have inferred general laws from sparse, noisy observations. Kepler’s laws are an early example. Measurements of planetary positions, taken from a moving Earth, led to a description that applied beyond the observed trajectories.
+Kepler used observations of planetary motion to propose laws that applied beyond the measured trajectories. KeplerBench asks whether a machine can make the same step, without being given the equations in advance.
 
-Planetary motion is therefore a useful first test for machine discovery. KeplerBench asks a learner to recover general laws from observer-based measurements without supplying the coordinates or equations that make the problem simple. Current systems have yet to pass this discovery test.
+The benchmark uses historical astronomical observations and synthetic planetary systems with modified physical laws. It tests whether a model can predict observations, find laws that transfer between systems, or learn local rules that can be reused.
 
-The pilot shows why fitting is insufficient. A Gaussian-process curve fit reached a median training error of 0.72 arcminutes but about 1174 on held-out observations. An ellipse reached 2.66 and 13.31 respectively, with its physical structure supplied in advance. It did not discover the laws.
+A pilot on historical observations of Mars shows why a good fit is only a first step. A Gaussian-process model had a median training error of 0.72 arcminutes, but about 1174 on held-out observations. A model built around a Keplerian ellipse had errors of 2.66 and 13.31 arcminutes respectively.
 
-Discovering that structure, then transferring it to unfamiliar planetary systems, is the challenge the benchmark sets.
+The ellipse model was given its physical structure. Its result shows why that structure matters, but leaves the problem of discovering it open. The harder test is to find a law, then use it on a planetary system the model has not seen.
 
 Accepted at Machine Learning with Imperfect Scientific Models (Sim2Science), a workshop at the 2026 Conference on Neural Information Processing Systems (NeurIPS).
 

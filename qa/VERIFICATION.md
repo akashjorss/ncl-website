@@ -90,3 +90,9 @@ The static build still emits ten pages, with one generated dictionary for note m
 ## Final type selection
 
 Akash selected Restrained. Applied its exact preview scale: desktop hero 56px, introduction and summaries 17px, navigation 15px, featured-note title 34px; phone headings 46px and 30px. The comparison now opens with Restrained selected. Static checks pass, and desktop and phone layouts were visually reviewed.
+
+## Research-note prose revision
+
+Revised all four notes in English, French and German for ordinary wording, clear paragraph progression and distinct subjects. KeplerBench now separates the pilot's supplied physical structure from the discovery question, without a blanket claim about every current system. Neural Field Computations explains the controller/state split and what the heat experiment supplies. Neural Continuity distinguishes a continuous spatial representation from discrete updates. The NCL note explains how physical problems guide experiments and model choices.
+
+Approved titles and summaries are preserved. English notes remain about 140 to 180 words. Pilot values were checked in all three languages; equations, venue names, acronym expansions and GitHub links are retained. Static checks and all 178 browser checks pass. The English KeplerBench page was also visually reviewed.
