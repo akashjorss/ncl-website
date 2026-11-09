@@ -1,7 +1,7 @@
 ---
 title: Can machines discover the laws of physics?
 date: 2026-11-09
-description: How physicists reason from a few observations to general laws.
+description: Physicists infer laws that reach beyond the observations that led to them. Can machines do the same?
 slug: can-a-machine-rediscover-keplers-laws
 ---
 
