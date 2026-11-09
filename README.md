@@ -64,7 +64,7 @@ Use fenced blocks for code. Standard Markdown supports headings, lists, tables, 
 
 Create `content/notes/fr/your-note.md` or `content/notes/de/your-note.md` with the same filename, slug and publication date as the English source. Translate the title, description and body. Preserve equations, quantitative results, source links and qualifications. Run `npm run build` and `npm run check`; commit translated Markdown, generated HTML and `notes-i18n.js` together. The interface switcher updates the article, its metadata and the note lists without fetching another page. The generated JSON contains only trusted, locally authored Markdown output. Missing translations fall back to English with a localized notice.
 
-The typography experiments are at http://127.0.0.1:8140/qa/type-study.html. The middle Editorial scale is applied to the site; the other scales are review options only.
+The typography experiments are at http://127.0.0.1:8140/qa/type-study.html. The Restrained scale is applied to the site; the other scales are review options only.
 
 ## Verification
 

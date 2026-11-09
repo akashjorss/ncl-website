@@ -86,3 +86,7 @@ All four notes now have separately authored French and German Markdown counterpa
 The static build still emits ten pages, with one generated dictionary for note metadata and trusted article translations embedded as escaped JSON. Static validation covers 168 local references and 157 translated interface instances. All 178 browser checks passed, including each note in three languages at 1440, 390 and 320 pixels, translated math, and switching an article through FR/DE/EN. French and German article layouts were visually reviewed in Chrome.
 
 `qa/type-study.html` compares three complete type scales with desktop/phone and language controls. The middle Editorial scale was selected after visual comparison: 64px desktop hero, 38px featured-note title, 18px supporting text, with 49px/34px headings on phones. The stylesheet and language scripts use content-hashed URLs to prevent older cached files from hiding updates.
+
+## Final type selection
+
+Akash selected Restrained. Applied its exact preview scale: desktop hero 56px, introduction and summaries 17px, navigation 15px, featured-note title 34px; phone headings 46px and 30px. The comparison now opens with Restrained selected. Static checks pass, and desktop and phone layouts were visually reviewed.
